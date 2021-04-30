@@ -2,17 +2,18 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
     xmlns:rt="root"
     xmlns:cmp="compiler"
-    xmlns:opt="option">
+    xmlns:opt="option"
+    xmlns:sz="size">
+
     <xs:import schemaLocation="root.xsd" namespace="root"/>
     <xs:import schemaLocation="compiler.xsd" namespace="compiler"/>
     <xs:import schemaLocation="option.xsd" namespace="option"/>
-
+    <xs:import schemaLocation="size.xsd" namespace="size"/>
 
     <xs:element name="mujoco">
         <xs:complexType>
             <xs:complexContent>
                 <xs:extension base="rt:mujocoType">
-
                     <xs:all>
                         <!-- compiler element -->
                         <xs:element name="compiler" minOccurs="0">
@@ -41,6 +42,9 @@
                                 </xs:complexContent>
                             </xs:complexType>
                         </xs:element>
+
+                        <!-- size element -->
+                        <xs:element name="size" type="sz:sizeType" minOccurs="0"/>
 
                         <!-- include element -->
                         <xs:element name="include" type="rt:includeType" minOccurs="0"/>

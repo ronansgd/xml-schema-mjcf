@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="size" xmlns="size">
+    <xs:complexType name="sizeType">
+        <xs:attribute name="njmax" type="xs:int" default="-1"/>
+        <xs:attribute name="nconmax" type="xs:int" default="-1"/>
+        <xs:attribute name="nstack" type="xs:int" default="-1"/>
+        <xs:attribute name="nuserdata" type="xs:int" default="0"/>
+        <xs:attribute name="nkey" type="xs:int" default="0"/>
+        <xs:attribute name="nuser_body" type="xs:int" default="0"/>
+        <xs:attribute name="nuser_jnt" type="xs:int" default="0"/>
+        <xs:attribute name="nuser_geom" type="xs:int" default="0"/>
+        <xs:attribute name="nuser_site" type="xs:int" default="0"/>
+        <xs:attribute name="nuser_cam" type="xs:int" default="0"/>
+        <xs:attribute name="nuser_tendon" type="xs:int" default="0"/>
+        <xs:attribute name="nuser_actuator" type="xs:int" default="0"/>
+        <xs:attribute name="nuser_sensor" type="xs:int" default="0"/>
+    </xs:complexType>
+</xs:schema>
