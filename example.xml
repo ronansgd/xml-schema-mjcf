@@ -2,5 +2,6 @@
 <mujoco>
     <compiler boundmass="0.0E1">
         <lengthrange/>
+        <include file=""/>
     </compiler>
 </mujoco>

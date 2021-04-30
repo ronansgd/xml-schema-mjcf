@@ -1,27 +1,36 @@
 <?xml version="1.0"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    xmlns:rt="root"
     xmlns:cmp="compiler">
+    <xs:import schemaLocation="root.xsd" namespace="root"/>
     <xs:import schemaLocation="compiler.xsd" namespace="compiler"/>
+
+
     <xs:element name="mujoco">
         <xs:complexType>
-            <xs:sequence>
-                <!-- compiler element -->
-                <xs:element name="compiler" minOccurs="0">
-                    <xs:complexType>
-                        <xs:complexContent>
-                            <xs:extension base="cmp:compilerType">
-                                <xs:sequence>
-                                    <xs:element name="lengthrange" type="cmp:lengthrangeType" minOccurs="0"/>
-                                </xs:sequence>
-                            </xs:extension>
-                        </xs:complexContent>
-                    </xs:complexType>
-                </xs:element>
+            <xs:complexContent>
+                <xs:extension base="rt:mujocoType">
 
-                <xs:any processContents="skip" minOccurs="0" maxOccurs="unbounded"/>
-            </xs:sequence>
+                    <xs:all>
+                        <!-- compiler element -->
+                        <xs:element name="compiler" minOccurs="0">
+                            <xs:complexType>
+                                <xs:complexContent>
+                                    <xs:extension base="cmp:compilerType">
+                                        <xs:all>
+                                            <xs:element name="lengthrange" type="cmp:lengthrangeType" minOccurs="0"/>
+                                            <xs:element name="include" type="rt:includeType" minOccurs="0"/>
+                                        </xs:all>
+                                    </xs:extension>
+                                </xs:complexContent>
+                            </xs:complexType>
+                        </xs:element>
 
-            <xs:attribute name="model" type="xs:string" default="MuJoCo Model"/>
+                        <xs:element name="include" type="rt:includeType" minOccurs="0"/>
+
+                    </xs:all>
+                </xs:extension>
+            </xs:complexContent>
         </xs:complexType>
     </xs:element>
 </xs:schema>
