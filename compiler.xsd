@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="compiler" xmlns="compiler"
+    xmlns:at="attributeTypes">
+    <xs:import schemaLocation="attribute_types.xsd" namespace="attributeTypes"/>
+
+    <xs:complexType name="compilerType">
+        <xs:attribute name="boundmass" type="xs:double" default="0"/>
+        <xs:attribute name="boudinertia" type="xs:double" default="0"/>
+        <xs:attribute name="settotalmass" type="xs:double" default="-1"/>
+        <xs:attribute name="balanceinertia" type="xs:boolean" default="false"/>
+        <xs:attribute name="strippath" type="xs:boolean" default="false"/>
+        <xs:attribute name="coordinate" type="at:coordinateType" default="local"/>
+        <xs:attribute name="angle" type="at:angleType" default="degree"/>
+        <xs:attribute name="fitaabb" type="xs:boolean" default="false"/>
+        <xs:attribute name="eulerseq" type="at:eulerseqType" default="xyz"/>
+        <xs:attribute name="meshdir" type="xs:string"/>
+        <xs:attribute name="texturedir" type="xs:string"/>
+        <xs:attribute name="discardvisual" type="xs:boolean" default="false"/>
+        <xs:attribute name="convexhull" type="xs:boolean" default="true"/>
+        <xs:attribute name="userthread" type="xs:boolean" default="true"/>
+        <xs:attribute name="fusestatic" type="xs:boolean" default="false"/>
+        <xs:attribute name="inertiafromgeom" type="at:inertiafromgeomType" default="auto"/>
+        <xs:attribute name="inertiagrouprange" type="at:twoIntsType" default="0 5"/>
+    </xs:complexType>
+
+    <xs:complexType name="lengthrangeType">
+        <xs:attribute name="mode" type="at:modeType" default="muscle"/>
+        <xs:attribute name="useexisting" type="xs:boolean" default="true"/>
+        <xs:attribute name="uselimit" type="xs:boolean" default="false"/>
+        <xs:attribute name="accel" type="xs:double" default="20"/>
+        <xs:attribute name="maxforce" type="xs:double" default="0"/>
+        <xs:attribute name="timeconst" type="xs:double" default="1"/>
+        <xs:attribute name="timestep" type="xs:double" default=".01"/>
+        <xs:attribute name="inttotal" type="xs:double" default="10"/>
+        <xs:attribute name="inteval" type="xs:double" default="2"/>
+        <xs:attribute name="tolrange" type="xs:double" default=".05"/>
+    </xs:complexType>
+</xs:schema>

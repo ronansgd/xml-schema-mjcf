@@ -1,0 +1,6 @@
+<?xml-model href="mujoco.xsd"?>
+<mujoco>
+    <compiler boundmass="0.0E1">
+        <lengthrange/>
+    </compiler>
+</mujoco>

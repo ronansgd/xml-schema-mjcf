@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    xmlns:cmp="compiler">
+    <xs:import schemaLocation="compiler.xsd" namespace="compiler"/>
+    <xs:element name="mujoco">
+        <xs:complexType>
+            <xs:sequence>
+                <!-- compiler element -->
+                <xs:element name="compiler" minOccurs="0">
+                    <xs:complexType>
+                        <xs:complexContent>
+                            <xs:extension base="cmp:compilerType">
+                                <xs:sequence>
+                                    <xs:element name="lengthrange" type="cmp:lengthrangeType" minOccurs="0"/>
+                                </xs:sequence>
+                            </xs:extension>
+                        </xs:complexContent>
+                    </xs:complexType>
+                </xs:element>
+
+                <xs:any processContents="skip" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+
+            <xs:attribute name="model" type="xs:string" default="MuJoCo Model"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

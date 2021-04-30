@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="attributeTypes" xmlns:at="attributeTypes">
+
+    <!-- general attributes -->
+    <xs:simpleType name="twoIntsType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="(([1-9][0-9]*)|0) (([1-9][0-9]*)|0)"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- compiler attributes -->
+    <xs:simpleType name="coordinateType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="local"/>
+            <xs:enumeration value="global"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="angleType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="degree"/>
+            <xs:enumeration value="radian"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="eulerseqType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[x-zX-Z]{3}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="inertiafromgeomType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="false"/>
+            <xs:enumeration value="true"/>
+            <xs:enumeration value="auto"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- compiler/lengthrange attributes -->
+    <xs:simpleType name="modeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="none"/>
+            <xs:enumeration value="muscle"/>
+            <xs:enumeration value="muscleuser"/>
+            <xs:enumeration value="all"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>
