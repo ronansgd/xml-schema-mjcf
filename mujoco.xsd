@@ -1,9 +1,11 @@
 <?xml version="1.0"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
     xmlns:rt="root"
-    xmlns:cmp="compiler">
+    xmlns:cmp="compiler"
+    xmlns:opt="option">
     <xs:import schemaLocation="root.xsd" namespace="root"/>
     <xs:import schemaLocation="compiler.xsd" namespace="compiler"/>
+    <xs:import schemaLocation="option.xsd" namespace="option"/>
 
 
     <xs:element name="mujoco">
@@ -26,6 +28,21 @@
                             </xs:complexType>
                         </xs:element>
 
+                        <!-- option element -->
+                        <xs:element name="option" minOccurs="0">
+                            <xs:complexType>
+                                <xs:complexContent>
+                                    <xs:extension base="opt:optionType">
+                                        <xs:all>
+                                            <xs:element name="flag" type="opt:flagType" minOccurs="0"/>
+                                            <xs:element name="include" type="rt:includeType" minOccurs="0"/>
+                                        </xs:all>
+                                    </xs:extension>
+                                </xs:complexContent>
+                            </xs:complexType>
+                        </xs:element>
+
+                        <!-- include element -->
                         <xs:element name="include" type="rt:includeType" minOccurs="0"/>
 
                     </xs:all>

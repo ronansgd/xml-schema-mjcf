@@ -1,7 +1,14 @@
 <?xml-model href="mujoco.xsd"?>
 <mujoco>
-    <compiler boundmass="0.0E1">
+    <compiler boundmass="0.1">
         <lengthrange/>
         <include file=""/>
     </compiler>
+
+    <option>
+        <flag/>
+        <include file=""/>
+    </option>
+
+    <include file=""/>
 </mujoco>

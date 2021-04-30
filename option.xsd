@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="option" xmlns="option"
+    xmlns:at="attributeTypes">
+    <xs:import schemaLocation="attribute_types.xsd" namespace="attributeTypes"/>
+
+    <xs:complexType name="optionType">
+        <xs:attribute name="timestep" type="xs:decimal" default=".002"/>
+        <xs:attribute name="apirate" type="xs:decimal" default="100"/>
+        <xs:attribute name="impratio" type="xs:decimal" default="1"/>
+        <xs:attribute name="gravity" type="at:threeRealsType" default="0 0 -9.81"/>
+        <xs:attribute name="wind" type="at:threeRealsType" default="0 0 0"/>
+        <xs:attribute name="magnetic" type="at:threeRealsType" default="0 -.5 0"/>
+        <xs:attribute name="density" type="xs:decimal" default="0"/>
+        <xs:attribute name="viscosity" type="xs:decimal" default="0"/>
+        <xs:attribute name="o_margin" type="xs:decimal" default="0"/>
+        <xs:attribute name="o_solimp" type="at:solimpType" default="0.9 0.95 0.001 0.5 2"/>
+        <xs:attribute name="o_solref" type="at:twoRealsType" default="0.02 1"/>
+        <xs:attribute name="integrator" type="at:integratorType" default="Euler"/>
+        <xs:attribute name="collision" type="at:collisionType" default="all"/>
+        <xs:attribute name="cone" type="at:coneType" default="pyramidal"/>
+        <xs:attribute name="jacobian" type="at:jacobianType" default="auto"/>
+        <xs:attribute name="solver" type="at:solverType" default="Newton"/>
+        <xs:attribute name="iterations" type="xs:int" default="100"/>
+        <xs:attribute name="tolerance" type="xs:double" default="1e-8"/>
+        <xs:attribute name="noslip_iterations" type="xs:int" default="0"/>
+        <xs:attribute name="noslip_tolerance" type="xs:double" default="1e-6"/>
+        <xs:attribute name="mpr_iterations" type="xs:int" default="50"/>
+        <xs:attribute name="mpr_tolerance" type="xs:double" default="1e-6"/>
+    </xs:complexType>
+
+    <xs:complexType name="flagType">
+        <xs:attribute name="constraint" type="at:flagSimpleType" default="enable"/>
+        <xs:attribute name="equality" type="at:flagSimpleType" default="enable"/>
+        <xs:attribute name="frictionloss" type="at:flagSimpleType" default="enable"/>
+        <xs:attribute name="limit" type="at:flagSimpleType" default="enable"/>
+        <xs:attribute name="contact" type="at:flagSimpleType" default="enable"/>
+        <xs:attribute name="passive" type="at:flagSimpleType" default="enable"/>
+        <xs:attribute name="gravity" type="at:flagSimpleType" default="enable"/>
+        <xs:attribute name="clampctrl" type="at:flagSimpleType" default="enable"/>
+        <xs:attribute name="warmstart" type="at:flagSimpleType" default="enable"/>
+        <xs:attribute name="filterparent" type="at:flagSimpleType" default="enable"/>
+        <xs:attribute name="actuation" type="at:flagSimpleType" default="enable"/>
+        <xs:attribute name="refsafe" type="at:flagSimpleType" default="enable"/>
+        <xs:attribute name="override" type="at:flagSimpleType" default="disable"/>
+        <xs:attribute name="energy" type="at:flagSimpleType" default="disable"/>
+        <xs:attribute name="fwdinv" type="at:flagSimpleType" default="disable"/>
+        <xs:attribute name="sensornoise" type="at:flagSimpleType" default="disable"/>
+    </xs:complexType>
+
+</xs:schema>

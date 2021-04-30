@@ -5,9 +5,35 @@
     <!-- general attributes -->
     <xs:simpleType name="twoIntsType">
         <xs:restriction base="xs:string">
-            <xs:pattern value="(([1-9][0-9]*)|0) (([1-9][0-9]*)|0)"/>
+            <xs:pattern value="[0-9]+ [0-9]+"/>
         </xs:restriction>
     </xs:simpleType>
+
+    <xs:simpleType name="twoRealsType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="-{0,1}(([0-9]+.{0,1}[0-9]*)|([0-9]*.{0,1}[0-9]+)) -{0,1}(([0-9]+.{0,1}[0-9]*)|([0-9]*.{0,1}[0-9]+))"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="threeRealsType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="-{0,1}(([0-9]+.{0,1}[0-9]*)|([0-9]*.{0,1}[0-9]+)) -{0,1}(([0-9]+.{0,1}[0-9]*)|([0-9]*.{0,1}[0-9]+)) -{0,1}(([0-9]+.{0,1}[0-9]*)|([0-9]*.{0,1}[0-9]+))"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="solimpType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="(-{0,1}(([0-9]+.{0,1}[0-9]*)|([0-9]*.{0,1}[0-9]+)) -{0,1}(([0-9]+.{0,1}[0-9]*)|([0-9]*.{0,1}[0-9]+)) -{0,1}(([0-9]+.{0,1}[0-9]*)|([0-9]*.{0,1}[0-9]+)))|(-{0,1}(([0-9]+.{0,1}[0-9]*)|([0-9]*.{0,1}[0-9]+)) -{0,1}(([0-9]+.{0,1}[0-9]*)|([0-9]*.{0,1}[0-9]+)) -{0,1}(([0-9]+.{0,1}[0-9]*)|([0-9]*.{0,1}[0-9]+)) -{0,1}(([0-9]+.{0,1}[0-9]*)|([0-9]*.{0,1}[0-9]+)) -{0,1}(([0-9]+.{0,1}[0-9]*)|([0-9]*.{0,1}[0-9]+)))"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="flagSimpleType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="enable"/>
+            <xs:enumeration value="disable"/>
+        </xs:restriction>
+    </xs:simpleType>
+
 
     <!-- compiler attributes -->
     <xs:simpleType name="coordinateType">
@@ -45,4 +71,38 @@
         </xs:restriction>
     </xs:simpleType>
 
+    <!-- option attributes -->
+    <xs:simpleType name="integratorType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Euler"/>
+            <xs:enumeration value="RK4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="collisionType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="all"/>
+            <xs:enumeration value="predefined"/>
+            <xs:enumeration value="dynamic"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="coneType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="pyramidal"/>
+            <xs:enumeration value="elliptic"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="jacobianType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="dense"/>
+            <xs:enumeration value="sparse"/>
+            <xs:enumeration value="auto"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="solverType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="PGS"/>
+            <xs:enumeration value="CG"/>
+            <xs:enumeration value="Newton"/>
+        </xs:restriction>
+    </xs:simpleType>
 </xs:schema>

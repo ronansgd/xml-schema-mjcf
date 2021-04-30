@@ -5,9 +5,9 @@
     <xs:import schemaLocation="attribute_types.xsd" namespace="attributeTypes"/>
 
     <xs:complexType name="compilerType">
-        <xs:attribute name="boundmass" type="xs:double" default="0"/>
-        <xs:attribute name="boudinertia" type="xs:double" default="0"/>
-        <xs:attribute name="settotalmass" type="xs:double" default="-1"/>
+        <xs:attribute name="boundmass" type="xs:decimal" default="0"/>
+        <xs:attribute name="boudinertia" type="xs:decimal" default="0"/>
+        <xs:attribute name="settotalmass" type="xs:decimal" default="-1"/>
         <xs:attribute name="balanceinertia" type="xs:boolean" default="false"/>
         <xs:attribute name="strippath" type="xs:boolean" default="false"/>
         <xs:attribute name="coordinate" type="at:coordinateType" default="local"/>
@@ -28,12 +28,12 @@
         <xs:attribute name="mode" type="at:modeType" default="muscle"/>
         <xs:attribute name="useexisting" type="xs:boolean" default="true"/>
         <xs:attribute name="uselimit" type="xs:boolean" default="false"/>
-        <xs:attribute name="accel" type="xs:double" default="20"/>
-        <xs:attribute name="maxforce" type="xs:double" default="0"/>
-        <xs:attribute name="timeconst" type="xs:double" default="1"/>
-        <xs:attribute name="timestep" type="xs:double" default=".01"/>
-        <xs:attribute name="inttotal" type="xs:double" default="10"/>
-        <xs:attribute name="inteval" type="xs:double" default="2"/>
-        <xs:attribute name="tolrange" type="xs:double" default=".05"/>
+        <xs:attribute name="accel" type="xs:decimal" default="20"/>
+        <xs:attribute name="maxforce" type="xs:decimal" default="0"/>
+        <xs:attribute name="timeconst" type="xs:decimal" default="1"/>
+        <xs:attribute name="timestep" type="xs:decimal" default=".01"/>
+        <xs:attribute name="inttotal" type="xs:decimal" default="10"/>
+        <xs:attribute name="inteval" type="xs:decimal" default="2"/>
+        <xs:attribute name="tolrange" type="xs:decimal" default=".05"/>
     </xs:complexType>
 </xs:schema>
