@@ -4,69 +4,74 @@
     xmlns:cmp="compiler"
     xmlns:opt="option"
     xmlns:sz="size"
-    xmlns:vis="visual">
+    xmlns:vis="visual"
+    xmlns:stt="statistic">
 
     <xs:import schemaLocation="root.xsd" namespace="root"/>
     <xs:import schemaLocation="compiler.xsd" namespace="compiler"/>
     <xs:import schemaLocation="option.xsd" namespace="option"/>
     <xs:import schemaLocation="size.xsd" namespace="size"/>
     <xs:import schemaLocation="visual.xsd" namespace="visual"/>
+    <xs:import schemaLocation="statistic.xsd" namespace="statistic"/>
 
     <xs:element name="mujoco">
         <xs:complexType>
             <xs:complexContent>
                 <xs:extension base="rt:mujocoType">
-                    <xs:all>
+                    <xs:choice minOccurs="0" maxOccurs="unbounded">
                         <!-- compiler element -->
-                        <xs:element name="compiler" minOccurs="0">
+                        <xs:element name="compiler" maxOccurs="1">
                             <xs:complexType>
                                 <xs:complexContent>
                                     <xs:extension base="cmp:compilerType">
-                                        <xs:all>
-                                            <xs:element name="lengthrange" type="cmp:lengthrangeType" minOccurs="0"/>
-                                            <xs:element name="include" type="rt:includeType" minOccurs="0"/>
-                                        </xs:all>
+                                        <xs:choice minOccurs="0" maxOccurs="unbounded">
+                                            <xs:element name="lengthrange" type="cmp:lengthrangeType" maxOccurs="1"/>
+                                            <xs:element name="include" type="rt:includeType"/>
+                                        </xs:choice>
                                     </xs:extension>
                                 </xs:complexContent>
                             </xs:complexType>
                         </xs:element>
 
                         <!-- option element -->
-                        <xs:element name="option" minOccurs="0">
+                        <xs:element name="option" maxOccurs="1">
                             <xs:complexType>
                                 <xs:complexContent>
                                     <xs:extension base="opt:optionType">
-                                        <xs:all>
-                                            <xs:element name="flag" type="opt:flagType" minOccurs="0"/>
-                                            <xs:element name="include" type="rt:includeType" minOccurs="0"/>
-                                        </xs:all>
+                                        <xs:choice minOccurs="0" maxOccurs="unbounded">
+                                            <xs:element name="flag" type="opt:flagType" maxOccurs="1"/>
+                                            <xs:element name="include" type="rt:includeType"/>
+                                        </xs:choice>
                                     </xs:extension>
                                 </xs:complexContent>
                             </xs:complexType>
                         </xs:element>
 
                         <!-- size element -->
-                        <xs:element name="size" type="sz:sizeType" minOccurs="0"/>
+                        <xs:element name="size" type="sz:sizeType" maxOccurs="1"/>
 
                         <!-- visual element -->
-                        <xs:element name="visual" minOccurs="0">
+                        <xs:element name="visual" maxOccurs="1">
                             <xs:complexType>
-                                <xs:all>
-                                    <xs:element name="global" type="vis:globalType" minOccurs="0"/>
-                                    <xs:element name="quality" type="vis:qualityType" minOccurs="0"/>
-                                    <xs:element name="headlight" type="vis:headlightType" minOccurs="0"/>
-                                    <xs:element name="map" type="vis:mapType" minOccurs="0"/>
-                                    <xs:element name="scale" type="vis:scaleType" minOccurs="0"/>
-                                    <xs:element name="rgba" type="vis:rgbaType" minOccurs="0"/>
-                                    <xs:element name="include" type="rt:includeType" minOccurs="0"/>
-                                </xs:all>
+                                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                                    <xs:element name="global" type="vis:globalType" maxOccurs="1"/>
+                                    <xs:element name="quality" type="vis:qualityType" maxOccurs="1"/>
+                                    <xs:element name="headlight" type="vis:headlightType" maxOccurs="1"/>
+                                    <xs:element name="map" type="vis:mapType" maxOccurs="1"/>
+                                    <xs:element name="scale" type="vis:scaleType" maxOccurs="1"/>
+                                    <xs:element name="rgba" type="vis:rgbaType" maxOccurs="1"/>
+                                    <xs:element name="include" type="rt:includeType"/>
+                                </xs:choice>
                             </xs:complexType>
                         </xs:element>
 
-                        <!-- include element -->
-                        <xs:element name="include" type="rt:includeType" minOccurs="0"/>
+                        <!-- statistic element -->
+                        <xs:element name="statistic" type="stt:statisticType" maxOccurs="1"/>
 
-                    </xs:all>
+                        <!-- include element -->
+                        <xs:element name="include" type="rt:includeType"/>
+
+                    </xs:choice>
                 </xs:extension>
             </xs:complexContent>
         </xs:complexType>

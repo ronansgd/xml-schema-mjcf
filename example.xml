@@ -20,7 +20,11 @@
         <scale/>
         <rgba/>
         <include file=""/>
+        <include file=""/>
     </visual>
+
+    <statistic/>
+
 
     <include file=""/>
 </mujoco>
