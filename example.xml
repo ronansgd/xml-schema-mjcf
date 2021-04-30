@@ -25,6 +25,11 @@
 
     <statistic/>
 
+    <default class="">
+        <default class="">
+            <default class=""/>
+        </default>
+    </default>
 
     <include file=""/>
 </mujoco>

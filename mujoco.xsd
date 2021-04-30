@@ -5,7 +5,8 @@
     xmlns:opt="option"
     xmlns:sz="size"
     xmlns:vis="visual"
-    xmlns:stt="statistic">
+    xmlns:stt="statistic"
+    xmlns:def="default">
 
     <xs:import schemaLocation="root.xsd" namespace="root"/>
     <xs:import schemaLocation="compiler.xsd" namespace="compiler"/>
@@ -13,7 +14,21 @@
     <xs:import schemaLocation="size.xsd" namespace="size"/>
     <xs:import schemaLocation="visual.xsd" namespace="visual"/>
     <xs:import schemaLocation="statistic.xsd" namespace="statistic"/>
+    <xs:import schemaLocation="default.xsd" namespace="default"/>
 
+    <!-- Recursive types -->
+    <xs:complexType name="defaultType">
+        <xs:complexContent>
+            <xs:extension base="def:defaultType">
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                    <xs:element name="default" type="defaultType" minOccurs="0"/>
+                </xs:choice>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+
+    <!-- Beginning of the architecture of elements -->
     <xs:element name="mujoco">
         <xs:complexType>
             <xs:complexContent>
@@ -70,6 +85,9 @@
 
                         <!-- include element -->
                         <xs:element name="include" type="rt:includeType"/>
+
+                        <!-- default element -->
+                        <xs:element name="default" type="defaultType" maxOccurs="1"/>
 
                     </xs:choice>
                 </xs:extension>
