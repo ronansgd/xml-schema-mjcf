@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="custom" xmlns="custom"
+    xmlns:at="attributeTypes">
+    <xs:import schemaLocation="attribute_types.xsd" namespace="attributeTypes"/>
+
+    <xs:complexType name="numericType">
+        <xs:attribute name="name" type="xs:string" use="required"/>
+        <xs:attribute name="size" type="xs:int" use="optional"/>
+        <!-- Potential improvement (see doc) -->
+        <xs:attribute name="data" type="at:infRealsType" use="optional"/>
+    </xs:complexType>
+
+    <xs:complexType name="textType">
+        <xs:attribute name="name" type="xs:string" use="required"/>
+        <xs:attribute name="data" type="xs:string" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="tupleType">
+        <xs:attribute name="name" type="xs:string" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="elementType">
+        <!-- Potential improvement (see doc) -->
+        <xs:attribute name="objtype" type="xs:string" use="required"/>
+        <!-- Potential improvement (see doc) -->
+        <xs:attribute name="objname" type="xs:string" use="required"/>
+        <xs:attribute name="prm" type="xs:decimal" default="0"/>
+    </xs:complexType>
+
+</xs:schema>

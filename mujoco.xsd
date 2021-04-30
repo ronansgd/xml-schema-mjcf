@@ -6,7 +6,8 @@
     xmlns:sz="size"
     xmlns:vis="visual"
     xmlns:stt="statistic"
-    xmlns:def="default">
+    xmlns:def="default"
+    xmlns:cst="custom">
 
     <xs:import schemaLocation="root.xsd" namespace="root"/>
     <xs:import schemaLocation="compiler.xsd" namespace="compiler"/>
@@ -15,6 +16,7 @@
     <xs:import schemaLocation="visual.xsd" namespace="visual"/>
     <xs:import schemaLocation="statistic.xsd" namespace="statistic"/>
     <xs:import schemaLocation="default.xsd" namespace="default"/>
+    <xs:import schemaLocation="custom.xsd" namespace="custom"/>
 
     <!-- Recursive types -->
     <xs:complexType name="defaultType">
@@ -88,6 +90,29 @@
 
                         <!-- default element -->
                         <xs:element name="default" type="defaultType" maxOccurs="1"/>
+
+                        <!-- custom element -->
+                        <xs:element name="custom" maxOccurs="1">
+                            <xs:complexType>
+                                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                                    <xs:element name="numeric" type="cst:numericType"/>
+                                    <xs:element name="text" type="cst:textType"/>
+                                    <xs:element name="tuple">
+                                        <xs:complexType>
+                                            <xs:complexContent>
+                                                <xs:extension base="cst:tupleType">
+                                                    <xs:choice minOccurs="0" maxOccurs="unbounded">
+                                                        <xs:element name="element" type="cst:elementType"/>
+                                                        <xs:element name="include" type="rt:includeType"/>
+                                                    </xs:choice>
+                                                </xs:extension>
+                                            </xs:complexContent>
+                                        </xs:complexType>
+                                    </xs:element>
+                                    <xs:element name="include" type="rt:includeType"/>
+                                </xs:choice>
+                            </xs:complexType>
+                        </xs:element>
 
                     </xs:choice>
                 </xs:extension>

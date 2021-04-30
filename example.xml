@@ -31,5 +31,15 @@
         </default>
     </default>
 
+    <custom>
+        <numeric name="as" data="2"/>
+        <text name="" data=""/>
+        <tuple name="">
+            <element objtype="" objname=""/>
+            <include file=""/>
+        </tuple>
+        <include file=""/>
+    </custom>
+
     <include file=""/>
 </mujoco>
