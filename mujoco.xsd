@@ -3,12 +3,14 @@
     xmlns:rt="root"
     xmlns:cmp="compiler"
     xmlns:opt="option"
-    xmlns:sz="size">
+    xmlns:sz="size"
+    xmlns:vis="visual">
 
     <xs:import schemaLocation="root.xsd" namespace="root"/>
     <xs:import schemaLocation="compiler.xsd" namespace="compiler"/>
     <xs:import schemaLocation="option.xsd" namespace="option"/>
     <xs:import schemaLocation="size.xsd" namespace="size"/>
+    <xs:import schemaLocation="visual.xsd" namespace="visual"/>
 
     <xs:element name="mujoco">
         <xs:complexType>
@@ -45,6 +47,21 @@
 
                         <!-- size element -->
                         <xs:element name="size" type="sz:sizeType" minOccurs="0"/>
+
+                        <!-- visual element -->
+                        <xs:element name="visual" minOccurs="0">
+                            <xs:complexType>
+                                <xs:all>
+                                    <xs:element name="global" type="vis:globalType" minOccurs="0"/>
+                                    <xs:element name="quality" type="vis:qualityType" minOccurs="0"/>
+                                    <xs:element name="headlight" type="vis:headlightType" minOccurs="0"/>
+                                    <xs:element name="map" type="vis:mapType" minOccurs="0"/>
+                                    <xs:element name="scale" type="vis:scaleType" minOccurs="0"/>
+                                    <xs:element name="rgba" type="vis:rgbaType" minOccurs="0"/>
+                                    <xs:element name="include" type="rt:includeType" minOccurs="0"/>
+                                </xs:all>
+                            </xs:complexType>
+                        </xs:element>
 
                         <!-- include element -->
                         <xs:element name="include" type="rt:includeType" minOccurs="0"/>

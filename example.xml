@@ -12,5 +12,15 @@
 
     <size/>
 
+    <visual>
+        <global/>
+        <quality/>
+        <headlight/>
+        <map/>
+        <scale/>
+        <rgba/>
+        <include file=""/>
+    </visual>
+
     <include file=""/>
 </mujoco>

@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="visual" xmlns="visual"
+    xmlns:at="attributeTypes">
+
+    <xs:import schemaLocation="attribute_types.xsd" namespace="attributeTypes"/>
+
+    <xs:complexType name="globalType">
+        <xs:attribute name="fovy" type="xs:decimal" default="45"/>
+        <xs:attribute name="ipd" type="xs:decimal" default="0.068"/>
+        <xs:attribute name="linewidth" type="xs:decimal" default="1"/>
+        <xs:attribute name="glow" type="xs:decimal" default="0.3"/>
+        <xs:attribute name="offwidth" type="xs:int" default="640"/>
+        <xs:attribute name="offheight" type="xs:int" default="480"/>
+    </xs:complexType>
+
+    <xs:complexType name="qualityType">
+        <xs:attribute name="shadowsize" type="xs:int" default="1024"/>
+        <xs:attribute name="offsamples" type="xs:int" default="4"/>
+        <xs:attribute name="numslices" type="xs:int" default="28"/>
+        <xs:attribute name="numstacks" type="xs:int" default="16"/>
+        <xs:attribute name="numquads" type="xs:int" default="4"/>
+    </xs:complexType>
+
+    <xs:complexType name="headlightType">
+        <xs:attribute name="ambient" type="at:threeRealsType" default="0.1 0.1 0.1"/>
+        <xs:attribute name="diffuse" type="at:threeRealsType" default="0.4 0.4 0.4"/>
+        <xs:attribute name="specular" type="at:threeRealsType" default="0.5 0.5 0.5"/>
+        <xs:attribute name="active" type="xs:int" default="1"/>
+    </xs:complexType>
+
+    <xs:complexType name="mapType">
+        <xs:attribute name="stiffness" type="xs:decimal" default="100"/>
+        <xs:attribute name="stiffnessrot" type="xs:decimal" default="500"/>
+        <xs:attribute name="force" type="xs:decimal" default="0.005"/>
+        <xs:attribute name="torque" type="xs:decimal" default="0.1"/>
+        <xs:attribute name="alpha" type="xs:decimal" default="0.3"/>
+        <xs:attribute name="fogstart" type="xs:decimal" default="3"/>
+        <xs:attribute name="fogend" type="xs:decimal" default="10"/>
+        <xs:attribute name="znear" type="xs:decimal" default="0.01"/>
+        <xs:attribute name="zfar" type="xs:decimal" default="50"/>
+        <xs:attribute name="haze" type="xs:decimal" default="0.3"/>
+        <xs:attribute name="shadowclip" type="xs:decimal" default="1"/>
+        <xs:attribute name="shadowscale" type="xs:decimal" default="0.6"/>
+        <xs:attribute name="actuatortendon" type="xs:decimal" default="2"/>
+    </xs:complexType>
+
+    <xs:complexType name="scaleType">
+        <xs:attribute name="forcewidth" type="xs:decimal" default="0.1"/>
+        <xs:attribute name="contactwidth" type="xs:decimal" default="0.3"/>
+        <xs:attribute name="contactheight" type="xs:decimal" default="0.1"/>
+        <xs:attribute name="connect" type="xs:decimal" default="0.2"/>
+        <xs:attribute name="com" type="xs:decimal" default="0.4"/>
+        <xs:attribute name="camera" type="xs:decimal" default="0.3"/>
+        <xs:attribute name="light" type="xs:decimal" default="0.3"/>
+        <xs:attribute name="selectpoint" type="xs:decimal" default="0.2"/>
+        <xs:attribute name="jointlength" type="xs:decimal" default="1.0"/>
+        <xs:attribute name="jointwidth" type="xs:decimal" default="0.1"/>
+        <xs:attribute name="actuatorlength" type="xs:decimal" default="0.7"/>
+        <xs:attribute name="actuatorwidth" type="xs:decimal" default="0.2"/>
+        <xs:attribute name="framelength" type="xs:decimal" default="1.0"/>
+        <xs:attribute name="framewidth" type="xs:decimal" default="0.1"/>
+        <xs:attribute name="constraint" type="xs:decimal" default="0.1"/>
+        <xs:attribute name="slidercrank" type="xs:decimal" default="0.2"/>
+    </xs:complexType>
+
+    <xs:complexType name="rgbaType">
+        <xs:attribute name="fog" type="at:fourRealsType" default="0 0 0 1"/>
+        <xs:attribute name="haze" type="at:fourRealsType" default="1 1 1 1"/>
+        <xs:attribute name="force" type="at:fourRealsType" default="1 0.5 0.5 1"/>
+        <xs:attribute name="inertia" type="at:fourRealsType" default="0.8 0.2 0.2 0.6"/>
+        <xs:attribute name="joint" type="at:fourRealsType" default="0.2 0.6 0.8 1"/>
+        <xs:attribute name="actuator" type="at:fourRealsType" default="0.2 0.25 0.2 1"/>
+        <xs:attribute name="actuatornegative" type="at:fourRealsType" default="0.2 0.6 0.9 1"/>
+        <xs:attribute name="actuatorpositive" type="at:fourRealsType" default="0.9 0.4 0.2 1"/>
+        <xs:attribute name="com" type="at:fourRealsType" default="0.9 0.9 0.9 1"/>
+        <xs:attribute name="camera" type="at:fourRealsType" default="0.6 0.9 0.6 1"/>
+        <xs:attribute name="light" type="at:fourRealsType" default="0.6 0.6 0.9 1"/>
+        <xs:attribute name="selectpoint" type="at:fourRealsType" default="0.9 0.9 0.1 1"/>
+        <xs:attribute name="connect" type="at:fourRealsType" default="0.2 0.2 0.8 1"/>
+        <xs:attribute name="contactpoint" type="at:fourRealsType" default="0.9 0.6 0.2 1"/>
+        <xs:attribute name="contactforce" type="at:fourRealsType" default="0.7 0.9 0.9 1"/>
+        <xs:attribute name="contactfriction" type="at:fourRealsType" default="0.9 0.8 0.4 1"/>
+        <xs:attribute name="contacttorque" type="at:fourRealsType" default="0.9 0.7 0.9 1"/>
+        <xs:attribute name="contactgap" type="at:fourRealsType" default="0.5 0.8 0.9 1"/>
+        <xs:attribute name="rangefinder" type="at:fourRealsType" default="1 1 0.1 1"/>
+        <xs:attribute name="constraint" type="at:fourRealsType" default="0.9 0 0 1"/>
+        <xs:attribute name="slidercrank" type="at:fourRealsType" default="0.5 0.3 0.8 1"/>
+        <xs:attribute name="crankbroken" type="at:fourRealsType" default="0.9 0 0 1"/>
+    </xs:complexType>
+</xs:schema>
