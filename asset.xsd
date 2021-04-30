@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="asset" xmlns="asset"
+    xmlns:at="attributeTypes">
+
+    <xs:import schemaLocation="attribute_types.xsd" namespace="attributeTypes"/>
+
+    <xs:complexType name="textureType">
+        <xs:attribute name="name" type="xs:string" use="optional"/>
+        <xs:attribute name="type" type="at:texturetypeType" default="cube"/>
+        <xs:attribute name="file" type="xs:string" use="optional"/>
+        <xs:attribute name="gridsize" type="at:twoIntsType" default="1 1"/>
+        <xs:attribute name="gridlayout" type="xs:string" default="............"/>
+        <xs:attribute name="fileright" type="xs:string" use="optional"/>
+        <xs:attribute name="fileleft" type="xs:string" use="optional"/>
+        <xs:attribute name="fileup" type="xs:string" use="optional"/>
+        <xs:attribute name="filedown" type="xs:string" use="optional"/>
+        <xs:attribute name="filefront" type="xs:string" use="optional"/>
+        <xs:attribute name="fileback" type="xs:string" use="optional"/>
+        <xs:attribute name="builtin" type="at:builtinType" default="none"/>
+        <xs:attribute name="rgb1" type="at:threeRealsType" default="0.8 0.8 0.8"/>
+        <xs:attribute name="rgb2" type="at:threeRealsType" default="0.5 0.5 0.5"/>
+        <xs:attribute name="mark" type="at:markType" default="none"/>
+        <xs:attribute name="markrgb" type="at:threeRealsType" default="0 0 0"/>
+        <xs:attribute name="random" type="xs:decimal" default="0.01"/>
+        <xs:attribute name="width" type="xs:int" default="0"/>
+        <xs:attribute name="height" type="xs:int" default="0"/>
+        <xs:attribute name="hflip" type="xs:boolean" default="false"/>
+        <xs:attribute name="vflip" type="xs:boolean" default="false"/>
+    </xs:complexType>
+
+    <xs:complexType name="hfieldType">
+        <xs:attribute name="name" type="xs:string" use="optional"/>
+        <xs:attribute name="file" type="xs:string" use="optional"/>
+        <xs:attribute name="nrow" type="xs:int" default="0"/>
+        <xs:attribute name="ncol" type="xs:int" default="0"/>
+        <xs:attribute name="size" type="at:fourRealsType" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="meshType">
+        <xs:attribute name="name" type="xs:string" use="optional"/>
+        <xs:attribute name="class" type="xs:string" use="optional"/>
+        <xs:attribute name="file" type="xs:string" use="optional"/>
+        <xs:attribute name="scale" type="at:threeRealsType" default="1 1 1"/>
+        <xs:attribute name="smoothnormal" type="xs:boolean" default="false"/>
+        <!-- Begin Potential improvement (see doc) -->
+        <xs:attribute name="vertex" type="at:infRealsType" use="optional"/>
+        <xs:attribute name="normal" type="at:infRealsType" use="optional"/>
+        <xs:attribute name="texcoord" type="at:infRealsType" use="optional"/>
+        <xs:attribute name="face" type="at:infIntsType" use="optional"/>
+        <!-- End Potential improvement -->
+        <xs:attribute name="refpos" type="at:threeRealsType" default="0 0 0"/>
+        <xs:attribute name="refquat" type="at:fourRealsType" default="1 0 0 0"/>
+    </xs:complexType>
+
+    <xs:complexType name="skinType">
+        <xs:attribute name="name" type="xs:string" use="optional"/>
+        <xs:attribute name="file" type="xs:string" use="optional"/>
+        <!-- Begin Potential improvement (see doc) -->
+        <xs:attribute name="vertex" type="at:infRealsType" use="optional"/>
+        <xs:attribute name="texcoord" type="at:infRealsType" use="optional"/>
+        <xs:attribute name="face" type="at:infIntsType" use="optional"/>
+        <!-- End Potential improvement -->
+        <xs:attribute name="inflate" type="xs:decimal" default="0"/>
+        <xs:attribute name="material" type="xs:string" use="optional"/>
+        <xs:attribute name="rgba" type="at:fourRealsType" default="0.5 0.5 0.5 1"/>
+    </xs:complexType>
+
+    <xs:complexType name="boneType">
+        <xs:attribute name="body" type="xs:string" use="required"/>
+        <xs:attribute name="bindpos" type="at:threeRealsType" use="required"/>
+        <xs:attribute name="bindquat" type="at:fourRealsType" use="required"/>
+        <!-- Begin Potential improvement (see doc) -->
+        <xs:attribute name="vertid" type="at:infIntsType" use="optional"/>
+        <xs:attribute name="vertweight" type="at:infRealsType" use="optional"/>
+        <!-- End Potential improvement -->
+    </xs:complexType>
+
+    <xs:complexType name="materialType">
+        <xs:attribute name="name" type="xs:string" use="optional"/>
+        <xs:attribute name="class" type="xs:string" use="optional"/>
+        <xs:attribute name="texture" type="xs:string" use="optional"/>
+        <xs:attribute name="texrepeat" type="at:twoRealsType" default="1 1"/>
+        <xs:attribute name="texuniform" type="xs:boolean" default="false"/>
+        <xs:attribute name="emission" type="xs:decimal" default="0"/>
+        <xs:attribute name="specular" type="xs:decimal" default="0.5"/>
+        <xs:attribute name="shininess" type="xs:decimal" default="0.5"/>
+        <xs:attribute name="reflectance" type="xs:decimal" default="0"/>
+        <xs:attribute name="rgba" type="at:fourRealsType" default="1 1 1 1"/>
+    </xs:complexType>
+
+</xs:schema>

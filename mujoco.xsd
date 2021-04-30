@@ -7,7 +7,8 @@
     xmlns:vis="visual"
     xmlns:stt="statistic"
     xmlns:def="default"
-    xmlns:cst="custom">
+    xmlns:cst="custom"
+    xmlns:ast="asset">
 
     <xs:import schemaLocation="root.xsd" namespace="root"/>
     <xs:import schemaLocation="compiler.xsd" namespace="compiler"/>
@@ -17,6 +18,7 @@
     <xs:import schemaLocation="statistic.xsd" namespace="statistic"/>
     <xs:import schemaLocation="default.xsd" namespace="default"/>
     <xs:import schemaLocation="custom.xsd" namespace="custom"/>
+    <xs:import schemaLocation="asset.xsd" namespace="asset"/>
 
     <!-- Recursive types -->
     <xs:complexType name="defaultType">
@@ -109,6 +111,31 @@
                                             </xs:complexContent>
                                         </xs:complexType>
                                     </xs:element>
+                                    <xs:element name="include" type="rt:includeType"/>
+                                </xs:choice>
+                            </xs:complexType>
+                        </xs:element>
+
+                        <!-- asset element -->
+                        <xs:element name="asset">
+                            <xs:complexType>
+                                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                                    <xs:element name="texture" type="ast:textureType"/>
+                                    <xs:element name="hfield" type="ast:hfieldType"/>
+                                    <xs:element name="mesh" type="ast:meshType"/>
+                                    <xs:element name="skin">
+                                        <xs:complexType>
+                                            <xs:complexContent>
+                                                <xs:extension base="ast:skinType">
+                                                    <xs:choice minOccurs="0" maxOccurs="unbounded">
+                                                        <xs:element name="bone" type="ast:boneType"/>
+                                                        <xs:element name="include" type="rt:includeType"/>
+                                                    </xs:choice>
+                                                </xs:extension>
+                                            </xs:complexContent>
+                                        </xs:complexType>
+                                    </xs:element>
+                                    <xs:element name="material" type="ast:materialType"/>
                                     <xs:element name="include" type="rt:includeType"/>
                                 </xs:choice>
                             </xs:complexType>

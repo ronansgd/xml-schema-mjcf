@@ -1,6 +1,6 @@
 <?xml-model href="mujoco.xsd"?>
 <mujoco>
-    <compiler boundmass="0.1">
+    <compiler>
         <lengthrange/>
         <include file=""/>
     </compiler>
@@ -32,7 +32,7 @@
     </default>
 
     <custom>
-        <numeric name="as" data="2"/>
+        <numeric name=""/>
         <text name="" data=""/>
         <tuple name="">
             <element objtype="" objname=""/>
@@ -40,6 +40,18 @@
         </tuple>
         <include file=""/>
     </custom>
+
+    <asset>
+        <texture/>
+        <hfield size="1 1 1 1"/>
+        <mesh/>
+        <skin>
+            <bone body="" bindpos="1 1 1" bindquat="1 1 1 1"/>
+            <include file=""/>
+        </skin>
+        <material/>
+        <include file=""/>
+    </asset>
 
     <include file=""/>
 </mujoco>

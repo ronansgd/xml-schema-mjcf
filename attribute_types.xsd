@@ -8,6 +8,11 @@
             <xs:pattern value="[0-9]+ [0-9]+"/>
         </xs:restriction>
     </xs:simpleType>
+    <xs:simpleType name="infIntsType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="([0-9] )*[0-9]"></xs:pattern>
+        </xs:restriction>
+    </xs:simpleType>
 
     <xs:simpleType name="twoRealsType">
         <xs:restriction base="xs:string">
@@ -17,13 +22,13 @@
 
     <xs:simpleType name="threeRealsType">
         <xs:restriction base="xs:string">
-            <xs:pattern value="-{0,1}(([0-9]+.{0,1}[0-9]*)|([0-9]*.{0,1}[0-9]+)) -{0,1}(([0-9]+.{0,1}[0-9]*)|([0-9]*.{0,1}[0-9]+)) -{0,1}(([0-9]+.{0,1}[0-9]*)|([0-9]*.{0,1}[0-9]+))"/>
+            <xs:pattern value="(-{0,1}(([0-9]+.{0,1}[0-9]*)|([0-9]*.{0,1}[0-9]+)) ){2}-{0,1}(([0-9]+.{0,1}[0-9]*)|([0-9]*.{0,1}[0-9]+))"/>
         </xs:restriction>
     </xs:simpleType>
 
     <xs:simpleType name="fourRealsType">
         <xs:restriction base="xs:string">
-            <xs:pattern value="-{0,1}(([0-9]+.{0,1}[0-9]*)|([0-9]*.{0,1}[0-9]+)) -{0,1}(([0-9]+.{0,1}[0-9]*)|([0-9]*.{0,1}[0-9]+)) -{0,1}(([0-9]+.{0,1}[0-9]*)|([0-9]*.{0,1}[0-9]+)) -{0,1}(([0-9]+.{0,1}[0-9]*)|([0-9]*.{0,1}[0-9]+))"/>
+            <xs:pattern value="(-{0,1}(([0-9]+.{0,1}[0-9]*)|([0-9]*.{0,1}[0-9]+)) ){3}-{0,1}(([0-9]+.{0,1}[0-9]*)|([0-9]*.{0,1}[0-9]+))"/>
         </xs:restriction>
     </xs:simpleType>
 
@@ -115,6 +120,31 @@
             <xs:enumeration value="PGS"/>
             <xs:enumeration value="CG"/>
             <xs:enumeration value="Newton"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- asset attributes -->
+    <xs:simpleType name="texturetypeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="2d"/>
+            <xs:enumeration value="cube"/>
+            <xs:enumeration value="skybox"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="builtinType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="none"/>
+            <xs:enumeration value="gradient"/>
+            <xs:enumeration value="checker"/>
+            <xs:enumeration value="flat"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="markType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="none"/>
+            <xs:enumeration value="edge"/>
+            <xs:enumeration value="cross"/>
+            <xs:enumeration value="random"/>
         </xs:restriction>
     </xs:simpleType>
 </xs:schema>
