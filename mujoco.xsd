@@ -10,7 +10,8 @@
     xmlns:cst="custom"
     xmlns:ast="asset"
     xmlns:bd="body"
-    xmlns:ctc="contact">
+    xmlns:ctc="contact"
+    xmlns:eqy="equality">
 
     <xs:import schemaLocation="root.xsd" namespace="root"/>
     <xs:import schemaLocation="compiler.xsd" namespace="compiler"/>
@@ -23,6 +24,7 @@
     <xs:import schemaLocation="asset.xsd" namespace="asset"/>
     <xs:import schemaLocation="body.xsd" namespace="body"/>
     <xs:import schemaLocation="contact.xsd" namespace="contact"/>
+    <xs:import schemaLocation="equality.xsd" namespace="equality"/>
 
 
     <!-- Recursive types -->
@@ -219,6 +221,20 @@
                                 <xs:choice minOccurs="0" maxOccurs="unbounded">
                                     <xs:element name="pair" type="ctc:pairType"/>
                                     <xs:element name="exclude" type="ctc:excludeType"/>
+                                    <xs:element name="include" type="rt:includeType"/>
+                                </xs:choice>
+                            </xs:complexType>
+                        </xs:element>
+
+                        <!-- equality element -->
+                        <xs:element name="equality">
+                            <xs:complexType>
+                                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                                    <xs:element name="connect" type="eqy:connectType"/>
+                                    <xs:element name="weld" type="eqy:weldType"/>
+                                    <xs:element name="joint" type="eqy:jointType"/>
+                                    <xs:element name="tendon" type="eqy:tendonType"/>
+                                    <xs:element name="distance" type="eqy:distanceType"/>
                                     <xs:element name="include" type="rt:includeType"/>
                                 </xs:choice>
                             </xs:complexType>

@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="equality" xmlns="equality"
+    xmlns:at="attributeTypes">
+
+    <xs:import schemaLocation="attribute_types.xsd" namespace="attributeTypes"/>
+
+    <xs:complexType name="connectType">
+        <xs:attribute name="name" type="xs:string" use="optional"/>
+        <xs:attribute name="class" type="xs:string" use="optional"/>
+        <xs:attribute name="active" type="xs:boolean" default="true"/>
+        <xs:attribute name="solimp" type="at:solimpType" default="0.9 0.95 0.001 0.5 2"/>
+        <xs:attribute name="solref" type="at:twoRealsType" default="0.02 1"/>
+        <xs:attribute name="body1" type="xs:string" use="required"/>
+        <xs:attribute name="body2" type="xs:string" use="optional"/>
+        <xs:attribute name="anchor" type="at:threeRealsType" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="weldType">
+        <xs:attribute name="name" type="xs:string" use="optional"/>
+        <xs:attribute name="class" type="xs:string" use="optional"/>
+        <xs:attribute name="active" type="xs:boolean" default="true"/>
+        <xs:attribute name="solimp" type="at:solimpType" default="0.9 0.95 0.001 0.5 2"/>
+        <xs:attribute name="solref" type="at:twoRealsType" default="0.02 1"/>
+        <xs:attribute name="body1" type="xs:string" use="required"/>
+        <xs:attribute name="body2" type="xs:string" use="optional"/>
+        <xs:attribute name="relpose" type="at:sevenRealsType" default="0 1 0 0 0 0 0"/>
+    </xs:complexType>
+
+    <xs:complexType name="jointType">
+        <xs:attribute name="name" type="xs:string" use="optional"/>
+        <xs:attribute name="class" type="xs:string" use="optional"/>
+        <xs:attribute name="active" type="xs:boolean" default="true"/>
+        <xs:attribute name="solimp" type="at:solimpType" default="0.9 0.95 0.001 0.5 2"/>
+        <xs:attribute name="solref" type="at:twoRealsType" default="0.02 1"/>
+        <xs:attribute name="joint1" type="xs:string" use="required"/>
+        <xs:attribute name="joint2" type="xs:string" use="optional"/>
+        <xs:attribute name="polycoef" type="at:fiveRealsType" default="0 1 0 0 0"/>
+    </xs:complexType>
+
+    <xs:complexType name="tendonType">
+        <xs:attribute name="name" type="xs:string" use="optional"/>
+        <xs:attribute name="class" type="xs:string" use="optional"/>
+        <xs:attribute name="active" type="xs:boolean" default="true"/>
+        <xs:attribute name="solimp" type="at:solimpType" default="0.9 0.95 0.001 0.5 2"/>
+        <xs:attribute name="solref" type="at:twoRealsType" default="0.02 1"/>
+        <xs:attribute name="tendon1" type="xs:string" use="required"/>
+        <xs:attribute name="tendon2" type="xs:string" use="optional"/>
+        <xs:attribute name="polycoef" type="at:fiveRealsType" default="0 1 0 0 0"/>
+    </xs:complexType>
+
+    <xs:complexType name="distanceType">
+        <xs:attribute name="name" type="xs:string" use="optional"/>
+        <xs:attribute name="class" type="xs:string" use="optional"/>
+        <xs:attribute name="active" type="xs:boolean" default="true"/>
+        <xs:attribute name="solimp" type="at:solimpType" default="0.9 0.95 0.001 0.5 2"/>
+        <xs:attribute name="solref" type="at:twoRealsType" default="0.02 1"/>
+        <xs:attribute name="geom1" type="xs:string" use="required"/>
+        <xs:attribute name="geom2" type="xs:string" use="optional"/>
+        <xs:attribute name="distance" type="xs:decimal" default="0"/>
+    </xs:complexType>
+</xs:schema>

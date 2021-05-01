@@ -76,5 +76,14 @@
         <include file=""/>
     </contact>
 
+    <equality>
+        <connect body1="" anchor="0 0 0"/>
+        <weld body1=""/>
+        <joint joint1=""/>
+        <tendon tendon1=""/>
+        <distance geom1=""/>
+        <include file=""/>
+    </equality>
+
     <include file=""/>
 </mujoco>
