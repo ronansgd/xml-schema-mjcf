@@ -1,0 +1,235 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="body" xmlns="body"
+    xmlns:at="attributeTypes">
+
+    <xs:import schemaLocation="attribute_types.xsd" namespace="attributeTypes"/>
+
+    <xs:complexType name="bodyType">
+        <xs:attribute name="name" type="xs:string" use="optional"/>
+        <xs:attribute name="childclass" type="xs:string" use="optional"/>
+        <xs:attribute name="mocap" type="xs:boolean" default="false"/>
+        <xs:attribute name="pos" type="at:threeRealsType" use="optional"/>
+        <xs:attribute name="quat" type="at:fourRealsType" default="1 0 0 0"/>
+        <xs:attribute name="axisangle" type="at:fourRealsType" use="optional"/>
+        <xs:attribute name="euler" type="at:threeRealsType" use="optional"/>
+        <xs:attribute name="xyaxes" type="at:sixRealsType" use="optional"/>
+        <xs:attribute name="zaxis" type="at:threeRealsType" use="optional"/>
+        <!-- Potential improvement -->
+        <xs:attribute name="user" type="at:infRealsType"/>
+    </xs:complexType>
+
+    <xs:complexType name="inertialType">
+        <xs:attribute name="pos" type="at:threeRealsType" use="required"/>
+        <xs:attribute name="quat" type="at:fourRealsType" default="1 0 0 0"/>
+        <xs:attribute name="axisangle" type="at:fourRealsType" use="optional"/>
+        <xs:attribute name="euler" type="at:threeRealsType" use="optional"/>
+        <xs:attribute name="xyaxes" type="at:sixRealsType" use="optional"/>
+        <xs:attribute name="zaxis" type="at:threeRealsType" use="optional"/>
+        <xs:attribute name="mass" type="xs:decimal" use="required"/>
+        <xs:attribute name="diaginertia" type="at:threeRealsType" use="optional"/>
+        <xs:attribute name="fullinertia" type="at:sixRealsType" use="optional"/>
+    </xs:complexType>
+
+    <xs:complexType name="jointType">
+        <xs:attribute name="name" type="xs:string" use="optional"/>
+        <xs:attribute name="class" type="xs:string" use="optional"/>
+        <xs:attribute name="type" type="at:jointtypeType" default="hinge"/>
+        <xs:attribute name="group" type="xs:int" default="0"/>
+        <xs:attribute name="pos" type="at:threeRealsType" default="0 0 0"/>
+        <xs:attribute name="axis" type="at:threeRealsType" default="0 0 1"/>
+        <xs:attribute name="springdamper" type="at:twoRealsType" default="0 0"/>
+        <xs:attribute name="limited" type="xs:boolean" default="false"/>
+        <xs:attribute name="solimplimit" type="at:solimpType" default="0.9 0.95 0.001 0.5 2"/>
+        <xs:attribute name="solreflimit" type="at:twoRealsType" default="0.02 1"/>
+        <xs:attribute name="solimpfriction" type="at:solimpType" default="0.9 0.95 0.001 0.5 2"/>
+        <xs:attribute name="solreffriction" type="at:twoRealsType" default="0.02 1"/>
+        <xs:attribute name="stiffness" type="xs:decimal" default="0"/>
+        <xs:attribute name="range" type="at:twoRealsType" default="0 0"/>
+        <xs:attribute name="margin" type="xs:decimal" default="0"/>
+        <xs:attribute name="ref" type="xs:decimal" default="0"/>
+        <xs:attribute name="springref" type="xs:decimal" default="0"/>
+        <xs:attribute name="armature" type="xs:decimal" default="0"/>
+        <xs:attribute name="damping" type="xs:decimal" default="0"/>
+        <xs:attribute name="frictionloss" type="xs:decimal" default="0"/>
+        <xs:attribute name="user" type="at:infRealsType"/>
+    </xs:complexType>
+
+    <xs:complexType name="freejointType">
+        <xs:attribute name="name" type="xs:string" use="optional"/>
+        <xs:attribute name="group" type="xs:int" default="0"/>
+    </xs:complexType>
+
+    <xs:complexType name="geomType">
+        <xs:attribute name="name" type="xs:string" use="optional"/>
+        <xs:attribute name="class" type="xs:string" use="optional"/>
+        <xs:attribute name="type" type="at:geomtypeType" default="sphere"/>
+        <xs:attribute name="contype" type="xs:int" default="1"/>
+        <xs:attribute name="conaffinity" type="xs:int" default="1"/>
+        <xs:attribute name="condim" type="xs:int" default="3"/>
+        <xs:attribute name="group" type="xs:int" default="0"/>
+        <xs:attribute name="priority" type="xs:int" default="0"/>
+        <xs:attribute name="size" type="at:threeRealsType" default="0 0 0"/>
+        <xs:attribute name="material" type="xs:string" use="optional"/>
+        <xs:attribute name="rgba" type="at:fourRealsType" default="0.5 0.5 0.5 1"/>
+        <xs:attribute name="friction" type="at:threeRealsType" default="1 0.005 0.0001"/>
+        <xs:attribute name="mass" type="xs:decimal" use="optional"/>
+        <xs:attribute name="density" type="xs:decimal" default="1000"/>
+        <xs:attribute name="solmix" type="xs:decimal" default="1"/>
+        <xs:attribute name="solimp" type="at:solimpType" default="0.9 0.95 0.001 0.5 2"/>
+        <xs:attribute name="solref" type="at:twoRealsType" default="0.02 1"/>
+        <xs:attribute name="margin" type="xs:decimal" default="0"/>
+        <xs:attribute name="gap" type="xs:decimal" default="0"/>
+        <xs:attribute name="fromto" type="at:sixRealsType" use="optional"/>
+        <xs:attribute name="pos" type="at:threeRealsType" default="0 0 0"/>
+        <xs:attribute name="quat" type="at:fourRealsType" default="1 0 0 0"/>
+        <xs:attribute name="axisangle" type="at:fourRealsType" use="optional"/>
+        <xs:attribute name="euler" type="at:threeRealsType" use="optional"/>
+        <xs:attribute name="xyaxes" type="at:sixRealsType" use="optional"/>
+        <xs:attribute name="zaxis" type="at:threeRealsType" use="optional"/>
+        <xs:attribute name="hfield" type="xs:string" use="optional"/>
+        <xs:attribute name="mesh" type="xs:string" use="optional"/>
+        <xs:attribute name="fitscale" type="xs:decimal" default="1"/>
+        <xs:attribute name="user" type="at:infRealsType"/>
+    </xs:complexType>
+
+    <xs:complexType name="siteType">
+        <xs:attribute name="name" type="xs:string" use="optional"/>
+        <xs:attribute name="class" type="xs:string" use="optional"/>
+        <xs:attribute name="type" type="at:sitetypeType" default="sphere"/>
+        <xs:attribute name="group" type="xs:int" default="0"/>
+        <xs:attribute name="material" type="xs:string" use="optional"/>
+        <xs:attribute name="rgba" type="at:fourRealsType" default="0.5 0.5 0.5 1"/>
+        <xs:attribute name="size" type="at:threeRealsType" default="0.005 0.005 0.005"/>
+        <xs:attribute name="fromto" type="at:sixRealsType" use="optional"/>
+        <xs:attribute name="pos" type="at:threeRealsType" default="0 0 0"/>
+        <xs:attribute name="quat" type="at:fourRealsType" default="1 0 0 0"/>
+        <xs:attribute name="axisangle" type="at:fourRealsType" use="optional"/>
+        <xs:attribute name="euler" type="at:threeRealsType" use="optional"/>
+        <xs:attribute name="xyaxes" type="at:sixRealsType" use="optional"/>
+        <xs:attribute name="zaxis" type="at:threeRealsType" use="optional"/>
+        <xs:attribute name="user" type="at:infRealsType"/>
+    </xs:complexType>
+
+    <xs:complexType name="cameraType">
+        <xs:attribute name="name" type="xs:string" use="optional"/>
+        <xs:attribute name="class" type="xs:string" use="optional"/>
+        <xs:attribute name="mode" type="at:cameramodeType" default="fixed"/>
+        <xs:attribute name="target" type="xs:string" use="optional"/>
+        <xs:attribute name="fovy" type="xs:decimal" default="45"/>
+        <xs:attribute name="ipd" type="xs:decimal" default="0.068"/>
+        <xs:attribute name="pos" type="at:threeRealsType" default="0 0 0"/>
+        <xs:attribute name="quat" type="at:fourRealsType" default="1 0 0 0"/>
+        <xs:attribute name="axisangle" type="at:fourRealsType" use="optional"/>
+        <xs:attribute name="euler" type="at:threeRealsType" use="optional"/>
+        <xs:attribute name="xyaxes" type="at:sixRealsType" use="optional"/>
+        <xs:attribute name="zaxis" type="at:threeRealsType" use="optional"/>
+        <xs:attribute name="user" type="at:infRealsType"/>
+    </xs:complexType>
+
+    <xs:complexType name="lightType">
+        <xs:attribute name="name" type="xs:string" use="optional"/>
+        <xs:attribute name="class" type="xs:string" use="optional"/>
+        <xs:attribute name="mode" type="at:cameramodeType" default="fixed"/>
+        <xs:attribute name="target" type="xs:string" use="optional"/>
+        <xs:attribute name="directional" type="xs:boolean" default="false"/>
+        <xs:attribute name="castshadow" type="xs:boolean" default="true"/>
+        <xs:attribute name="active" type="xs:boolean" default="true"/>
+        <xs:attribute name="pos" type="at:threeRealsType" default="0 0 0"/>
+        <xs:attribute name="dir" type="at:threeRealsType" default="0 0 -1"/>
+        <xs:attribute name="attenuation" type="at:threeRealsType" default="1 0 0"/>
+        <xs:attribute name="cutoff" type="xs:decimal" default="45"/>
+        <xs:attribute name="exponent" type="xs:decimal" default="10"/>
+        <xs:attribute name="ambient" type="at:threeRealsType" default="0 0 0"/>
+        <xs:attribute name="diffuse" type="at:threeRealsType" default="0.7 0.7 0.7"/>
+        <xs:attribute name="specular" type="at:threeRealsType" default="0.3 0.3 0.3"/>
+    </xs:complexType>
+
+    <xs:complexType name="compositeType">
+        <xs:attribute name="prefix" type="xs:string" use="optional"/>
+        <xs:attribute name="type" type="at:compositetypeType" use="required"/>
+        <xs:attribute name="count" type="at:countType" use="required"/>
+        <xs:attribute name="spacing" type="xs:decimal" use="required"/>
+        <xs:attribute name="offset" type="at:threeRealsType" default="0 0 0"/>
+        <xs:attribute name="flatinertia" type="xs:decimal" default="0"/>
+        <xs:attribute name="solimpsmooth" type="at:solimpType" default="0.9 0.95 0.001 0.5 2"/>
+        <xs:attribute name="solrefsmooth" type="at:twoRealsType" default="0.02 1"/>
+    </xs:complexType>
+
+    <xs:complexType name="compositejointType">
+        <xs:attribute name="kind" type="at:jointkindType" use="required"/>
+        <xs:attribute name="solimpfix" type="at:solimpType" default="0.9 0.95 0.001 0.5 2"/>
+        <xs:attribute name="solreffix" type="at:twoRealsType" default="0.02 1"/>
+        <xs:attribute name="group" type="xs:int" default="0"/>
+        <xs:attribute name="stiffness" type="xs:decimal" default="0"/>
+        <xs:attribute name="damping" type="xs:decimal" default="0"/>
+        <xs:attribute name="armature" type="xs:decimal" default="0"/>
+        <xs:attribute name="limited" type="xs:boolean" default="false"/>
+        <xs:attribute name="range" type="at:twoRealsType" default="0 0"/>
+        <xs:attribute name="margin" type="xs:decimal" default="0"/>
+        <xs:attribute name="solreflimit" type="at:twoRealsType" default="0.02 1"/>
+        <xs:attribute name="solimplimit" type="at:solimpType" default="0.9 0.95 0.001 0.5 2"/>
+        <xs:attribute name="frictionloss" type="xs:decimal" default="0"/>
+        <xs:attribute name="solreffriction" type="at:twoRealsType" default="0.02 1"/>
+        <xs:attribute name="solimpfriction" type="at:solimpType" default="0.9 0.95 0.001 0.5 2"/>
+    </xs:complexType>
+
+    <xs:complexType name="tendonType">
+        <xs:attribute name="kind" type="at:tendonkindType" use="required"/>
+        <xs:attribute name="solimpfix" type="at:solimpType" default="0.9 0.95 0.001 0.5 2"/>
+        <xs:attribute name="solreffix" type="at:twoRealsType" default="0.02 1"/>
+        <xs:attribute name="group" type="xs:int" default="0"/>
+        <xs:attribute name="stiffness" type="xs:decimal" default="0"/>
+        <xs:attribute name="damping" type="xs:decimal" default="0"/>
+        <xs:attribute name="limited" type="xs:boolean" default="false"/>
+        <xs:attribute name="range" type="at:twoRealsType" default="0 0"/>
+        <xs:attribute name="margin" type="xs:decimal" default="0"/>
+        <xs:attribute name="solimplimit" type="at:solimpType" default="0.9 0.95 0.001 0.5 2"/>
+        <xs:attribute name="solreflimit" type="at:twoRealsType" default="0.02 1"/>
+        <xs:attribute name="frictionloss" type="xs:decimal" default="0"/>
+        <xs:attribute name="solimpfriction" type="at:solimpType" default="0.9 0.95 0.001 0.5 2"/>
+        <xs:attribute name="solreffriction" type="at:twoRealsType" default="0.02 1"/>
+        <xs:attribute name="material" type="xs:string" use="optional"/>
+        <xs:attribute name="rgba" type="at:fourRealsType" default="0.5 0.5 0.5 1"/>
+        <xs:attribute name="width" type="xs:decimal" default="0.003"/>
+    </xs:complexType>
+
+    <xs:complexType name="compositegeomType">
+        <xs:attribute name="type" type="at:geomtypeType" default="sphere"/>
+        <xs:attribute name="contype" type="xs:int" default="1"/>
+        <xs:attribute name="conaffinity" type="xs:int" default="1"/>
+        <xs:attribute name="condim" type="xs:int" default="3"/>
+        <xs:attribute name="group" type="xs:int" default="0"/>
+        <xs:attribute name="priority" type="xs:int" default="0"/>
+        <xs:attribute name="size" type="at:threeRealsType" default="0 0 0"/>
+        <xs:attribute name="material" type="xs:string" use="optional"/>
+        <xs:attribute name="rgba" type="at:fourRealsType" default="0.5 0.5 0.5 1"/>
+        <xs:attribute name="friction" type="at:threeRealsType" default="1 0.005 0.0001"/>
+        <xs:attribute name="mass" type="xs:decimal" use="optional"/>
+        <xs:attribute name="density" type="xs:decimal" default="1000"/>
+        <xs:attribute name="solmix" type="xs:decimal" default="1"/>
+        <xs:attribute name="solimp" type="at:solimpType" default="0.9 0.95 0.001 0.5 2"/>
+        <xs:attribute name="solref" type="at:twoRealsType" default="0.02 1"/>
+        <xs:attribute name="margin" type="xs:decimal" default="0"/>
+        <xs:attribute name="gap" type="xs:decimal" default="0"/>
+    </xs:complexType>
+
+    <xs:complexType name="compositesiteType">
+        <xs:attribute name="group" type="xs:int" default="0"/>
+        <xs:attribute name="size" type="at:threeRealsType" default="0.005 0.005 0.005"/>
+        <xs:attribute name="material" type="xs:string" use="optional"/>
+        <xs:attribute name="rgba" type="at:fourRealsType" default="0.5 0.5 0.5 1"/>
+    </xs:complexType>
+
+    <xs:complexType name="skinType">
+        <xs:attribute name="textcoord" type="xs:boolean" default="false"/>
+        <xs:attribute name="material" type="xs:string" use="optional"/>
+        <xs:attribute name="rgba" type="at:fourRealsType" default="0.5 0.5 0.5 1"/>
+        <xs:attribute name="inflate" type="xs:decimal" default="0"/>
+        <xs:attribute name="subgrid" type="xs:int" default="0"/>
+    </xs:complexType>
+
+    <xs:complexType name="pinType">
+        <xs:attribute name="coord" type="at:twoIntsType" use="required"/>
+    </xs:complexType>
+</xs:schema>

@@ -8,7 +8,8 @@
     xmlns:stt="statistic"
     xmlns:def="default"
     xmlns:cst="custom"
-    xmlns:ast="asset">
+    xmlns:ast="asset"
+    xmlns:bd="body">
 
     <xs:import schemaLocation="root.xsd" namespace="root"/>
     <xs:import schemaLocation="compiler.xsd" namespace="compiler"/>
@@ -19,13 +20,53 @@
     <xs:import schemaLocation="default.xsd" namespace="default"/>
     <xs:import schemaLocation="custom.xsd" namespace="custom"/>
     <xs:import schemaLocation="asset.xsd" namespace="asset"/>
+    <xs:import schemaLocation="body.xsd" namespace="body"/>
+
 
     <!-- Recursive types -->
+    <!-- default -->
     <xs:complexType name="defaultType">
         <xs:complexContent>
             <xs:extension base="def:defaultType">
                 <xs:choice minOccurs="0" maxOccurs="unbounded">
                     <xs:element name="default" type="defaultType" minOccurs="0"/>
+                    <xs:element name="include" type="rt:includeType"/>
+                </xs:choice>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <!-- body -->
+    <xs:complexType name="bodyarchType">
+        <xs:complexContent>
+            <xs:extension base="bd:bodyType">
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                    <xs:element name="inertial" type="bd:inertialType"/>
+                    <xs:element name="joint" type="bd:jointType"/>
+                    <xs:element name="freejoint" type="bd:jointType"/>
+                    <xs:element name="geom" type="bd:geomType"/>
+                    <xs:element name="site" type="bd:siteType"/>
+                    <xs:element name="camera" type="bd:cameraType"/>
+                    <xs:element name="light" type="bd:lightType"/>
+                    <xs:element name="composite">
+                        <xs:complexType>
+                            <xs:complexContent>
+                                <xs:extension base="bd:compositeType">
+                                    <xs:choice minOccurs="0" maxOccurs="unbounded">
+                                        <xs:element name="joint" type="bd:compositejointType"/>
+                                        <xs:element name="tendon" type="bd:tendonType"/>
+                                        <xs:element name="geom" type="bd:compositegeomType"/>
+                                        <xs:element name="site" type="bd:compositesiteType"/>
+                                        <xs:element name="skin" type="bd:skinType"/>
+                                        <xs:element name="pin" type="bd:pinType"/>
+                                        <xs:element name="include" type="rt:includeType"/>
+                                    </xs:choice>
+                                </xs:extension>
+                            </xs:complexContent>
+                        </xs:complexType>
+                    </xs:element>
+
+                    <xs:element name="body" type="bodyarchType"/>
+                    <xs:element name="include" type="rt:includeType"/>
                 </xs:choice>
             </xs:extension>
         </xs:complexContent>
@@ -136,6 +177,38 @@
                                         </xs:complexType>
                                     </xs:element>
                                     <xs:element name="material" type="ast:materialType"/>
+                                    <xs:element name="include" type="rt:includeType"/>
+                                </xs:choice>
+                            </xs:complexType>
+                        </xs:element>
+
+                        <!-- (world)body element -->
+                        <xs:element name="worldbody">
+                            <xs:complexType>
+                                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                                    <xs:element name="geom" type="bd:geomType"/>
+                                    <xs:element name="site" type="bd:siteType"/>
+                                    <xs:element name="camera" type="bd:cameraType"/>
+                                    <xs:element name="light" type="bd:lightType"/>
+                                    <xs:element name="composite">
+                                        <xs:complexType>
+                                            <xs:complexContent>
+                                                <xs:extension base="bd:compositeType">
+                                                    <xs:choice minOccurs="0" maxOccurs="unbounded">
+                                                        <xs:element name="joint" type="bd:compositejointType"/>
+                                                        <xs:element name="tendon" type="bd:tendonType"/>
+                                                        <xs:element name="geom" type="bd:compositegeomType"/>
+                                                        <xs:element name="site" type="bd:compositesiteType"/>
+                                                        <xs:element name="skin" type="bd:skinType"/>
+                                                        <xs:element name="pin" type="bd:pinType"/>
+                                                        <xs:element name="include" type="rt:includeType"/>
+                                                    </xs:choice>
+                                                </xs:extension>
+                                            </xs:complexContent>
+                                        </xs:complexType>
+                                    </xs:element>
+
+                                    <xs:element name="body" type="bodyarchType"/>
                                     <xs:element name="include" type="rt:includeType"/>
                                 </xs:choice>
                             </xs:complexType>

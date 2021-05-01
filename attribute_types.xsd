@@ -8,6 +8,11 @@
             <xs:pattern value="[0-9]+ [0-9]+"/>
         </xs:restriction>
     </xs:simpleType>
+    <xs:simpleType name="threeIntsType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="([0-9]+ ){2}[0-9]+"/>
+        </xs:restriction>
+    </xs:simpleType>
     <xs:simpleType name="infIntsType">
         <xs:restriction base="xs:string">
             <xs:pattern value="([0-9] )*[0-9]"></xs:pattern>
@@ -29,6 +34,12 @@
     <xs:simpleType name="fourRealsType">
         <xs:restriction base="xs:string">
             <xs:pattern value="(-{0,1}(([0-9]+.{0,1}[0-9]*)|([0-9]*.{0,1}[0-9]+)) ){3}-{0,1}(([0-9]+.{0,1}[0-9]*)|([0-9]*.{0,1}[0-9]+))"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="sixRealsType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="(-{0,1}(([0-9]+.{0,1}[0-9]*)|([0-9]*.{0,1}[0-9]+)) ){5}-{0,1}(([0-9]+.{0,1}[0-9]*)|([0-9]*.{0,1}[0-9]+))"/>
         </xs:restriction>
     </xs:simpleType>
 
@@ -147,4 +158,81 @@
             <xs:enumeration value="random"/>
         </xs:restriction>
     </xs:simpleType>
+
+    <!-- body/joint attribute -->
+    <xs:simpleType name="jointtypeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="free"/>
+            <xs:enumeration value="ball"/>
+            <xs:enumeration value="slide"/>
+            <xs:enumeration value="hinge"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- body/geom attribute -->
+    <xs:simpleType name="geomtypeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="plane"/>
+            <xs:enumeration value="hfield"/>
+            <xs:enumeration value="sphere"/>
+            <xs:enumeration value="capsule"/>
+            <xs:enumeration value="ellipsoid"/>
+            <xs:enumeration value="cylinder"/>
+            <xs:enumeration value="box"/>
+            <xs:enumeration value="mesh"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- body/site attribute -->
+    <xs:simpleType name="sitetypeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="sphere"/>
+            <xs:enumeration value="capsule"/>
+            <xs:enumeration value="ellipsoid"/>
+            <xs:enumeration value="cylinder"/>
+            <xs:enumeration value="box"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- body/camera attribute -->
+    <xs:simpleType name="cameramodeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="fixed"/>
+            <xs:enumeration value="track"/>
+            <xs:enumeration value="trackcom"/>
+            <xs:enumeration value="targetbody"/>
+            <xs:enumeration value="targetbodycom"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- body/composite attribute -->
+    <xs:simpleType name="compositetypeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="particle"/>
+            <xs:enumeration value="grid"/>
+            <xs:enumeration value="rope"/>
+            <xs:enumeration value="loop"/>
+            <xs:enumeration value="cloth"/>
+            <xs:enumeration value="box"/>
+            <xs:enumeration value="cylinder"/>
+            <xs:enumeration value="ellipsoid"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="countType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="(-{0,1}(([0-9]+.{0,1}[0-9]*)|([0-9]*.{0,1}[0-9]+)) ){0,2}-{0,1}(([0-9]+.{0,1}[0-9]*)|([0-9]*.{0,1}[0-9]+))"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- body/composite/joint attribute -->
+    <xs:simpleType name="jointkindType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="main"/>
+            <xs:enumeration value="twist"/>
+            <xs:enumeration value="stretch"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- body/composite/tendon attribute -->
+    <xs:simpleType name="tendonkindType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="main"/>
+            <xs:enumeration value="shear"/>
+        </xs:restriction>
+    </xs:simpleType>
+
 </xs:schema>

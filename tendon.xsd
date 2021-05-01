@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="tendon" xmlns="tendon"
+    xmlns:at="attributeTypes">
+
+    <xs:import schemaLocation="attribute_types.xsd" namespace="attributeTypes"/>
+
+    <xs:complexType name="spatialType">
+        <xs:attribute name="name" type="xs:string" use="optional"/>
+        <xs:attribute name="class" type="xs:string" use="optional"/>
+        <xs:attribute name="group" type="xs:int" default="0"/>
+        <xs:attribute name="limited" type="xs:boolean" default="false"/>
+        <xs:attribute name="range" type="at:twoRealsType" default="0 0"/>
+        <xs:attribute name="solimplimit" type="at:solimpType" default="0.9 0.95 0.001 0.5 2"/>
+        <xs:attribute name="solreflimit" type="at:twoRealsType" default="0.02 1"/>
+        <xs:attribute name="solimpfriction" type="at:solimpType" default="0.9 0.95 0.001 0.5 2"/>
+        <xs:attribute name="solreffriction" type="at:twoRealsType" default="0.02 1"/>
+        <xs:attribute name="margin" type="xs:decimal" default="0"/>
+        <xs:attribute name="frictionloss" type="xs:decimal" default="0"/>
+        <xs:attribute name="width" type="xs:decimal" default="0.003"/>
+        <xs:attribute name="material" type="xs:string" use="optional"/>
+        <xs:attribute name="rgba" type="at:fourRealsType" default="0.5 0.5 0.5 1"/>
+        <xs:attribute name="springlength" type="xs:decimal" default="-1"/>
+        <xs:attribute name="stiffness" type="xs:decimal" default="0"/>
+        <xs:attribute name="damping" type="xs:decimal" default="0"/>
+        <xs:attribute name="user" type="at:infRealsType"/>
+    </xs:complexType>
+</xs:schema>

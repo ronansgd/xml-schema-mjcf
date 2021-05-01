@@ -53,5 +53,17 @@
         <include file=""/>
     </asset>
 
+    <worldbody>
+        <body>
+            <inertial pos="0 0 0" mass="0"/>
+            <geom/>
+            <composite type="particle" count="4" spacing="1">
+                <geom/>
+                <pin coord="0 9"/>
+            </composite>
+            <body></body>
+        </body>
+    </worldbody>
+
     <include file=""/>
 </mujoco>
