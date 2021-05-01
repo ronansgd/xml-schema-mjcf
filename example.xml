@@ -85,5 +85,19 @@
         <include file=""/>
     </equality>
 
+    <tendon>
+        <spatial>
+            <geom geom=""/>
+            <include file=""/>
+            <pulley divisor="1"/>
+            <site site=""/>
+        </spatial>
+        <fixed>
+            <include file=""/>
+            <joint joint="" coef="1"/>
+        </fixed>
+        <include file=""/>
+    </tendon>
+
     <include file=""/>
 </mujoco>

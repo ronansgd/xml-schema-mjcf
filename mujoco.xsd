@@ -11,7 +11,8 @@
     xmlns:ast="asset"
     xmlns:bd="body"
     xmlns:ctc="contact"
-    xmlns:eqy="equality">
+    xmlns:eqy="equality"
+    xmlns:tdn="tendon">
 
     <xs:import schemaLocation="root.xsd" namespace="root"/>
     <xs:import schemaLocation="compiler.xsd" namespace="compiler"/>
@@ -25,6 +26,7 @@
     <xs:import schemaLocation="body.xsd" namespace="body"/>
     <xs:import schemaLocation="contact.xsd" namespace="contact"/>
     <xs:import schemaLocation="equality.xsd" namespace="equality"/>
+    <xs:import schemaLocation="tendon.xsd" namespace="tendon"/>
 
 
     <!-- Recursive types -->
@@ -235,6 +237,41 @@
                                     <xs:element name="joint" type="eqy:jointType"/>
                                     <xs:element name="tendon" type="eqy:tendonType"/>
                                     <xs:element name="distance" type="eqy:distanceType"/>
+                                    <xs:element name="include" type="rt:includeType"/>
+                                </xs:choice>
+                            </xs:complexType>
+                        </xs:element>
+
+                        <!-- tendon element -->
+                        <xs:element name="tendon">
+                            <xs:complexType>
+                                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                                    <xs:element name="spatial">
+                                        <xs:complexType>
+                                            <xs:complexContent>
+                                                <xs:extension base="tdn:spatialType">
+                                                    <xs:choice minOccurs="0" maxOccurs="unbounded">
+                                                        <xs:element name="site" type="tdn:siteType"/>
+                                                        <xs:element name="geom" type="tdn:geomType"/>
+                                                        <xs:element name="pulley" type="tdn:pulleyType"/>
+                                                        <xs:element name="include" type="rt:includeType"/>
+                                                    </xs:choice>
+                                                </xs:extension>
+                                            </xs:complexContent>
+                                        </xs:complexType>
+                                    </xs:element>
+                                    <xs:element name="fixed">
+                                        <xs:complexType>
+                                            <xs:complexContent>
+                                                <xs:extension base="tdn:fixedType">
+                                                    <xs:choice minOccurs="0" maxOccurs="unbounded">
+                                                        <xs:element name="joint" type="tdn:jointType"/>
+                                                        <xs:element name="include" type="rt:includeType"/>
+                                                    </xs:choice>
+                                                </xs:extension>
+                                            </xs:complexContent>
+                                        </xs:complexType>
+                                    </xs:element>
                                     <xs:element name="include" type="rt:includeType"/>
                                 </xs:choice>
                             </xs:complexType>
