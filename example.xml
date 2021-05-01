@@ -57,13 +57,24 @@
         <body>
             <inertial pos="0 0 0" mass="0"/>
             <geom/>
+            <light/>
+            <joint/>
+            <camera/>
+            <site/>
             <composite type="particle" count="4" spacing="1">
                 <geom/>
                 <pin coord="0 9"/>
             </composite>
             <body></body>
+            <include file=""/>
         </body>
     </worldbody>
+
+    <contact>
+        <pair geom1="" geom2=""/>
+        <exclude body1="" body2=""/>
+        <include file=""/>
+    </contact>
 
     <include file=""/>
 </mujoco>

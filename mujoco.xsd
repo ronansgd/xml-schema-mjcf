@@ -9,7 +9,8 @@
     xmlns:def="default"
     xmlns:cst="custom"
     xmlns:ast="asset"
-    xmlns:bd="body">
+    xmlns:bd="body"
+    xmlns:ctc="contact">
 
     <xs:import schemaLocation="root.xsd" namespace="root"/>
     <xs:import schemaLocation="compiler.xsd" namespace="compiler"/>
@@ -21,6 +22,7 @@
     <xs:import schemaLocation="custom.xsd" namespace="custom"/>
     <xs:import schemaLocation="asset.xsd" namespace="asset"/>
     <xs:import schemaLocation="body.xsd" namespace="body"/>
+    <xs:import schemaLocation="contact.xsd" namespace="contact"/>
 
 
     <!-- Recursive types -->
@@ -128,9 +130,6 @@
                         <!-- statistic element -->
                         <xs:element name="statistic" type="stt:statisticType" maxOccurs="1"/>
 
-                        <!-- include element -->
-                        <xs:element name="include" type="rt:includeType"/>
-
                         <!-- default element -->
                         <xs:element name="default" type="defaultType" maxOccurs="1"/>
 
@@ -213,6 +212,20 @@
                                 </xs:choice>
                             </xs:complexType>
                         </xs:element>
+
+                        <!-- contact element -->
+                        <xs:element name="contact">
+                            <xs:complexType>
+                                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                                    <xs:element name="pair" type="ctc:pairType"/>
+                                    <xs:element name="exclude" type="ctc:excludeType"/>
+                                    <xs:element name="include" type="rt:includeType"/>
+                                </xs:choice>
+                            </xs:complexType>
+                        </xs:element>
+
+                        <!-- include element -->
+                        <xs:element name="include" type="rt:includeType"/>
 
                     </xs:choice>
                 </xs:extension>
