@@ -12,7 +12,8 @@
     xmlns:bd="body"
     xmlns:ctc="contact"
     xmlns:eqy="equality"
-    xmlns:tdn="tendon">
+    xmlns:tdn="tendon"
+    xmlns:act="actuator">
 
     <xs:import schemaLocation="root.xsd" namespace="root"/>
     <xs:import schemaLocation="compiler.xsd" namespace="compiler"/>
@@ -27,6 +28,7 @@
     <xs:import schemaLocation="contact.xsd" namespace="contact"/>
     <xs:import schemaLocation="equality.xsd" namespace="equality"/>
     <xs:import schemaLocation="tendon.xsd" namespace="tendon"/>
+    <xs:import schemaLocation="actuator.xsd" namespace="actuator"/>
 
 
     <!-- Recursive types -->
@@ -272,6 +274,21 @@
                                             </xs:complexContent>
                                         </xs:complexType>
                                     </xs:element>
+                                    <xs:element name="include" type="rt:includeType"/>
+                                </xs:choice>
+                            </xs:complexType>
+                        </xs:element>
+
+                        <!-- actuator element -->
+                        <xs:element name="actuator">
+                            <xs:complexType>
+                                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                                    <xs:element name="general" type="act:generalType"/>
+                                    <xs:element name="motor" type="act:motorType"/>
+                                    <xs:element name="position" type="act:positionType"/>
+                                    <xs:element name="velocity" type="act:velocityType"/>
+                                    <xs:element name="cylinder" type="act:cylinderType"/>
+                                    <xs:element name="muscle" type="act:muscleType"/>
                                     <xs:element name="include" type="rt:includeType"/>
                                 </xs:choice>
                             </xs:complexType>

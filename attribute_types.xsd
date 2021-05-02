@@ -49,6 +49,11 @@
             <xs:pattern value="(-{0,1}(([0-9]+.{0,1}[0-9]*)|([0-9]*.{0,1}[0-9]+)) ){6}-{0,1}(([0-9]+.{0,1}[0-9]*)|([0-9]*.{0,1}[0-9]+))"/>
         </xs:restriction>
     </xs:simpleType>
+    <xs:simpleType name="tenRealsType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="(-{0,1}(([0-9]+.{0,1}[0-9]*)|([0-9]*.{0,1}[0-9]+)) ){9}-{0,1}(([0-9]+.{0,1}[0-9]*)|([0-9]*.{0,1}[0-9]+))"/>
+        </xs:restriction>
+    </xs:simpleType>
     <xs:simpleType name="infRealsType">
         <xs:restriction base="xs:string">
             <xs:pattern value="(-{0,1}(([0-9]+.{0,1}[0-9]*)|([0-9]*.{0,1}[0-9]+)) )*(-{0,1}(([0-9]+.{0,1}[0-9]*)|([0-9]*.{0,1}[0-9]+))){0,1}"/>
@@ -238,6 +243,31 @@
         <xs:restriction base="xs:string">
             <xs:enumeration value="main"/>
             <xs:enumeration value="shear"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- actuator/general -->
+    <xs:simpleType name="dyntypeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="none"/>
+            <xs:enumeration value="integrator"/>
+            <xs:enumeration value="filter"/>
+            <xs:enumeration value="muscle"/>
+            <xs:enumeration value="user"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="gaintypeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="fixed"/>
+            <xs:enumeration value="muscle"/>
+            <xs:enumeration value="user"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="biastypeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="none"/>
+            <xs:enumeration value="affine"/>
+            <xs:enumeration value="muscle"/>
+            <xs:enumeration value="user"/>
         </xs:restriction>
     </xs:simpleType>
 

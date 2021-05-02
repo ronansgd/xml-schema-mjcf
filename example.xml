@@ -99,5 +99,15 @@
         <include file=""/>
     </tendon>
 
+    <actuator>
+        <general/>
+        <motor/>
+        <position/>
+        <velocity/>
+        <cylinder/>
+        <muscle/>
+        <include file=""/>
+    </actuator>
+
     <include file=""/>
 </mujoco>
