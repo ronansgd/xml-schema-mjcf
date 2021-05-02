@@ -109,5 +109,16 @@
         <include file=""/>
     </actuator>
 
+    <sensor>
+        <touch site=""/>
+        <actuatorfrc actuator=""/>
+        <jointlimitfrc joint=""/>
+        <tendonlimitfrc tendon=""/>
+        <frameangacc objtype="body" objname=""/>
+        <subtreeangmom body=""/>
+        <user objtype="1" objname="" datatype="real" neddstage="pos" dim="1"/>
+        <include file=""/>
+    </sensor>
+
     <include file=""/>
 </mujoco>

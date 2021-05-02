@@ -13,7 +13,8 @@
     xmlns:ctc="contact"
     xmlns:eqy="equality"
     xmlns:tdn="tendon"
-    xmlns:act="actuator">
+    xmlns:act="actuator"
+    xmlns:sns="sensor">
 
     <xs:import schemaLocation="root.xsd" namespace="root"/>
     <xs:import schemaLocation="compiler.xsd" namespace="compiler"/>
@@ -29,6 +30,7 @@
     <xs:import schemaLocation="equality.xsd" namespace="equality"/>
     <xs:import schemaLocation="tendon.xsd" namespace="tendon"/>
     <xs:import schemaLocation="actuator.xsd" namespace="actuator"/>
+    <xs:import schemaLocation="sensor.xsd" namespace="sensor"/>
 
 
     <!-- Recursive types -->
@@ -289,6 +291,51 @@
                                     <xs:element name="velocity" type="act:velocityType"/>
                                     <xs:element name="cylinder" type="act:cylinderType"/>
                                     <xs:element name="muscle" type="act:muscleType"/>
+                                    <xs:element name="include" type="rt:includeType"/>
+                                </xs:choice>
+                            </xs:complexType>
+                        </xs:element>
+
+                        <!-- sensor element -->
+                        <xs:element name="sensor">
+                            <xs:complexType>
+                                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                                    <xs:element name="touch" type="sns:sensorType"/>
+                                    <xs:element name="accelerometer" type="sns:sensorType"/>
+                                    <xs:element name="velocimeter" type="sns:sensorType"/>
+                                    <xs:element name="gyro" type="sns:sensorType"/>
+                                    <xs:element name="force" type="sns:sensorType"/>
+                                    <xs:element name="torque" type="sns:sensorType"/>
+                                    <xs:element name="magnetometer" type="sns:sensorType"/>
+                                    <xs:element name="rangefinder" type="sns:sensorType"/>
+                                    <xs:element name="jointpos" type="sns:jointType"/>
+                                    <xs:element name="jointvel" type="sns:jointType"/>
+                                    <xs:element name="tendonpos" type="sns:tendonType"/>
+                                    <xs:element name="tendonvel" type="sns:tendonType"/>
+                                    <xs:element name="actuatorpos" type="sns:actuatorType"/>
+                                    <xs:element name="actuatorvel" type="sns:actuatorType"/>
+                                    <xs:element name="actuatorfrc" type="sns:actuatorType"/>
+                                    <xs:element name="ballquat" type="sns:jointType"/>
+                                    <xs:element name="ballangvel" type="sns:jointType"/>
+                                    <xs:element name="jointlimitpos" type="sns:jointType"/>
+                                    <xs:element name="jointlimitvel" type="sns:jointType"/>
+                                    <xs:element name="jointlimitfrc" type="sns:jointType"/>
+                                    <xs:element name="tendonlimitpos" type="sns:tendonType"/>
+                                    <xs:element name="tendonlimitvel" type="sns:tendonType"/>
+                                    <xs:element name="tendonlimitfrc" type="sns:tendonType"/>
+                                    <xs:element name="framepos" type="sns:frameType"/>
+                                    <xs:element name="framequat" type="sns:frameType"/>
+                                    <xs:element name="framexaxis" type="sns:frameType"/>
+                                    <xs:element name="frameyaxis" type="sns:frameType"/>
+                                    <xs:element name="framezaxis" type="sns:frameType"/>
+                                    <xs:element name="framelinvel" type="sns:frameType"/>
+                                    <xs:element name="frameangvel" type="sns:frameType"/>
+                                    <xs:element name="framelinacc" type="sns:frameType"/>
+                                    <xs:element name="frameangacc" type="sns:frameType"/>
+                                    <xs:element name="subtreecom" type="sns:subtreeType"/>
+                                    <xs:element name="subtreelinvel" type="sns:subtreeType"/>
+                                    <xs:element name="subtreeangmom" type="sns:subtreeType"/>
+                                    <xs:element name="user" type="sns:userType"/>
                                     <xs:element name="include" type="rt:includeType"/>
                                 </xs:choice>
                             </xs:complexType>

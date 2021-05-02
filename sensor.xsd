@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="sensor" xmlns="sensor"
+    xmlns:at="attributeTypes">
+
+    <xs:import schemaLocation="attribute_types.xsd" namespace="attributeTypes"/>
+
+    <xs:complexType name="sensorType">
+        <!-- Covers touch, accelerometer, velocimeter, gyro, force,
+        torque, magnetometer, rangefinder -->
+        <xs:attribute name="name" type="xs:string" use="optional"/>
+        <xs:attribute name="noise" type="xs:decimal" default="0"/>
+        <xs:attribute name="cuttoff" type="xs:decimal" default="0"/>
+        <xs:attribute name="user" type="at:infRealsType"/>
+        <xs:attribute name="site" type="xs:string" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="jointType">
+        <!-- Covers jointpos, jointvel
+        ballquat, ballangvel,jointlimitpos, jointlimitvel,
+        jointlimitfrc -->
+        <xs:attribute name="name" type="xs:string" use="optional"/>
+        <xs:attribute name="noise" type="xs:decimal" default="0"/>
+        <xs:attribute name="cuttoff" type="xs:decimal" default="0"/>
+        <xs:attribute name="user" type="at:infRealsType"/>
+        <xs:attribute name="joint" type="xs:string" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="tendonType">
+        <!-- Covers tendonpos, tendonvel, tendonlimitpos, tendonlimitvel
+        tendonlimitfrc-->
+        <xs:attribute name="name" type="xs:string" use="optional"/>
+        <xs:attribute name="noise" type="xs:decimal" default="0"/>
+        <xs:attribute name="cuttoff" type="xs:decimal" default="0"/>
+        <xs:attribute name="user" type="at:infRealsType"/>
+        <xs:attribute name="tendon" type="xs:string" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="actuatorType">
+        <!-- Covers actuatorpos, actuatorvel, actuatorfrc -->
+        <xs:attribute name="name" type="xs:string" use="optional"/>
+        <xs:attribute name="noise" type="xs:decimal" default="0"/>
+        <xs:attribute name="cuttoff" type="xs:decimal" default="0"/>
+        <xs:attribute name="user" type="at:infRealsType"/>
+        <xs:attribute name="actuator" type="xs:string" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="frameType">
+        <!-- Covers framepos, framequat, framexaxis, frameyaxis,
+        framezaxis, framelinvel, frameangvel, framelinacc,
+        frameangacc -->
+        <xs:attribute name="name" type="xs:string" use="optional"/>
+        <xs:attribute name="noise" type="xs:decimal" default="0"/>
+        <xs:attribute name="cuttoff" type="xs:decimal" default="0"/>
+        <xs:attribute name="user" type="at:infRealsType"/>
+        <xs:attribute name="objtype" type="at:objtypeType" use="required"/>
+        <xs:attribute name="objname" type="xs:string" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="subtreeType">
+        <!-- Covers subtreecom, subtreelinvel, subtreeangmom -->
+        <xs:attribute name="name" type="xs:string" use="optional"/>
+        <xs:attribute name="noise" type="xs:decimal" default="0"/>
+        <xs:attribute name="cuttoff" type="xs:decimal" default="0"/>
+        <xs:attribute name="user" type="at:infRealsType"/>
+        <xs:attribute name="body" type="xs:string" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="userType">
+        <xs:attribute name="name" type="xs:string" use="optional"/>
+        <xs:attribute name="noise" type="xs:decimal" default="0"/>
+        <xs:attribute name="cuttoff" type="xs:decimal" default="0"/>
+        <xs:attribute name="user" type="at:infRealsType"/>
+        <!-- Improve next attribute with custom type -->
+        <xs:attribute name="objtype" type="xs:string" use="required"/>
+        <xs:attribute name="objname" type="xs:string" use="required"/>
+        <xs:attribute name="datatype" type="at:datatypeType" use="required"/>
+        <xs:attribute name="neddstage" type="at:needstageType" use="required"/>
+        <xs:attribute name="dim" type="xs:int" use="required"/>
+    </xs:complexType>
+</xs:schema>

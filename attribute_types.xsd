@@ -270,5 +270,30 @@
             <xs:enumeration value="user"/>
         </xs:restriction>
     </xs:simpleType>
+    <!-- sensor/frame -->
+    <xs:simpleType name="objtypeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="body"/>
+            <xs:enumeration value="xbody"/>
+            <xs:enumeration value="geom"/>
+            <xs:enumeration value="site"/>
+            <xs:enumeration value="camera"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="datatypeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="real"/>
+            <xs:enumeration value="positive"/>
+            <xs:enumeration value="axis"/>
+            <xs:enumeration value="quaternion"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="needstageType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="pos"/>
+            <xs:enumeration value="vel"/>
+            <xs:enumeration value="acc"/>
+        </xs:restriction>
+    </xs:simpleType>
 
 </xs:schema>
