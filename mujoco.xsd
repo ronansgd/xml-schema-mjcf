@@ -14,7 +14,8 @@
     xmlns:eqy="equality"
     xmlns:tdn="tendon"
     xmlns:act="actuator"
-    xmlns:sns="sensor">
+    xmlns:sns="sensor"
+    xmlns:key="keyframe">
 
     <xs:import schemaLocation="root.xsd" namespace="root"/>
     <xs:import schemaLocation="compiler.xsd" namespace="compiler"/>
@@ -31,6 +32,7 @@
     <xs:import schemaLocation="tendon.xsd" namespace="tendon"/>
     <xs:import schemaLocation="actuator.xsd" namespace="actuator"/>
     <xs:import schemaLocation="sensor.xsd" namespace="sensor"/>
+    <xs:import schemaLocation="keyframe.xsd" namespace="keyframe"/>
 
 
     <!-- Recursive types -->
@@ -336,6 +338,16 @@
                                     <xs:element name="subtreelinvel" type="sns:subtreeType"/>
                                     <xs:element name="subtreeangmom" type="sns:subtreeType"/>
                                     <xs:element name="user" type="sns:userType"/>
+                                    <xs:element name="include" type="rt:includeType"/>
+                                </xs:choice>
+                            </xs:complexType>
+                        </xs:element>
+
+                        <!-- keyframe element -->
+                        <xs:element name="keyframe">
+                            <xs:complexType>
+                                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                                    <xs:element name="key" type="key:keyType"/>
                                     <xs:element name="include" type="rt:includeType"/>
                                 </xs:choice>
                             </xs:complexType>

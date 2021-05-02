@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="keyframe" xmlns="keyframe"
+    xmlns:at="attributeTypes">
+
+    <xs:import schemaLocation="attribute_types.xsd" namespace="attributeTypes"/>
+
+    <xs:complexType name="keyType">
+        <xs:attribute name="name" type="xs:string" use="optional"/>
+        <xs:attribute name="time" type="xs:decimal" default="0"/>
+        <!-- Begin Potential improvement -->
+        <xs:attribute name="qpos" type="at:infRealsType"/>
+        <xs:attribute name="qvel" type="at:infRealsType"/>
+        <xs:attribute name="act" type="at:infRealsType"/>
+        <!-- End Potential improvement -->
+    </xs:complexType>
+
+</xs:schema>
