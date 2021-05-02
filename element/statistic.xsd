@@ -3,7 +3,7 @@
     targetNamespace="statistic" xmlns="statistic"
     xmlns:at="attributeTypes">
 
-    <xs:import schemaLocation="attribute_types.xsd" namespace="attributeTypes"/>
+    <xs:import schemaLocation="../attribute/attribute_types.xsd" namespace="attributeTypes"/>
 
     <xs:complexType name="statisticType">
         <xs:attribute name="meanmass" type="xs:decimal" use="optional"/>

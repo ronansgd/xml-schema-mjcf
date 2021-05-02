@@ -3,7 +3,7 @@
     targetNamespace="equality" xmlns="equality"
     xmlns:at="attributeTypes">
 
-    <xs:import schemaLocation="attribute_types.xsd" namespace="attributeTypes"/>
+    <xs:import schemaLocation="../attribute/attribute_types.xsd" namespace="attributeTypes"/>
 
     <xs:complexType name="connectType">
         <xs:attribute name="name" type="xs:string" use="optional"/>

@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
-    targetNamespace="default" xmlns="default"
-    xmlns:at="attributeTypes">
+    targetNamespace="default" xmlns="default">
 
     <xs:complexType name="defaultType">
         <xs:attribute name="class" type="xs:string" use="required"/>

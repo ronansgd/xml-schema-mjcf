@@ -3,7 +3,7 @@
     targetNamespace="sensor" xmlns="sensor"
     xmlns:at="attributeTypes">
 
-    <xs:import schemaLocation="attribute_types.xsd" namespace="attributeTypes"/>
+    <xs:import schemaLocation="../attribute/attribute_types.xsd" namespace="attributeTypes"/>
 
     <xs:complexType name="sensorType">
         <!-- Covers touch, accelerometer, velocimeter, gyro, force,

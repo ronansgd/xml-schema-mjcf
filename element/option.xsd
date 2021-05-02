@@ -2,7 +2,7 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
     targetNamespace="option" xmlns="option"
     xmlns:at="attributeTypes">
-    <xs:import schemaLocation="attribute_types.xsd" namespace="attributeTypes"/>
+    <xs:import schemaLocation="../attribute/attribute_types.xsd" namespace="attributeTypes"/>
 
     <xs:complexType name="optionType">
         <xs:attribute name="timestep" type="xs:decimal" default=".002"/>

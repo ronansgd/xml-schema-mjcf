@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
     targetNamespace="size" xmlns="size">
+
     <xs:complexType name="sizeType">
         <xs:attribute name="njmax" type="xs:int" default="-1"/>
         <xs:attribute name="nconmax" type="xs:int" default="-1"/>

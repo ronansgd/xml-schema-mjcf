@@ -3,7 +3,7 @@
     targetNamespace="body" xmlns="body"
     xmlns:at="attributeTypes">
 
-    <xs:import schemaLocation="attribute_types.xsd" namespace="attributeTypes"/>
+    <xs:import schemaLocation="../attribute/attribute_types.xsd" namespace="attributeTypes"/>
 
     <xs:complexType name="bodyType">
         <xs:attribute name="name" type="xs:string" use="optional"/>

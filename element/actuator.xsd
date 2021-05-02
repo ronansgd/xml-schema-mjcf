@@ -3,7 +3,7 @@
     targetNamespace="actuator" xmlns="actuator"
     xmlns:at="attributeTypes">
 
-    <xs:import schemaLocation="attribute_types.xsd" namespace="attributeTypes"/>
+    <xs:import schemaLocation="../attribute/attribute_types.xsd" namespace="attributeTypes"/>
 
     <xs:complexType name="generalType">
         <xs:attribute name="name" type="xs:string" use="optional"/>

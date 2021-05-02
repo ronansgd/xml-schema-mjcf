@@ -3,7 +3,7 @@
     targetNamespace="visual" xmlns="visual"
     xmlns:at="attributeTypes">
 
-    <xs:import schemaLocation="attribute_types.xsd" namespace="attributeTypes"/>
+    <xs:import schemaLocation="../attribute/attribute_types.xsd" namespace="attributeTypes"/>
 
     <xs:complexType name="globalType">
         <xs:attribute name="fovy" type="xs:decimal" default="45"/>
