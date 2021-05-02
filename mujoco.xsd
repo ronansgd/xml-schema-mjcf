@@ -36,17 +36,36 @@
 
 
     <!-- Recursive types -->
+
     <!-- default -->
     <xs:complexType name="defaultType">
         <xs:complexContent>
             <xs:extension base="def:defaultType">
                 <xs:choice minOccurs="0" maxOccurs="unbounded">
+                    <xs:element name="mesh" type="def:meshType"/>
+                    <xs:element name="material" type="def:materialType"/>
+                    <xs:element name="joint" type="def:jointType"/>
+                    <xs:element name="geom" type="def:geomType"/>
+                    <xs:element name="site" type="def:siteType"/>
+                    <xs:element name="camera" type="def:cameraType"/>
+                    <xs:element name="light" type="def:lightType"/>
+                    <xs:element name="pair" type="def:pairType"/>
+                    <xs:element name="equality" type="def:equalityType"/>
+                    <xs:element name="tendon" type="def:tendonType"/>
+                    <xs:element name="general" type="def:generalType"/>
+                    <xs:element name="motor" type="def:motorType"/>
+                    <xs:element name="position" type="def:positionType"/>
+                    <xs:element name="velocity" type="def:velocityType"/>
+                    <xs:element name="cylinder" type="def:cylinderType"/>
+                    <xs:element name="muscle" type="def:muscleType"/>
+
                     <xs:element name="default" type="defaultType" minOccurs="0"/>
                     <xs:element name="include" type="rt:includeType"/>
                 </xs:choice>
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
+
     <!-- body -->
     <xs:complexType name="bodyarchType">
         <xs:complexContent>
