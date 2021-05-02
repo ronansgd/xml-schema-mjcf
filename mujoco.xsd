@@ -1,21 +1,5 @@
 <?xml version="1.0"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
-    xmlns:rt="root"
-    xmlns:cmp="compiler"
-    xmlns:opt="option"
-    xmlns:sz="size"
-    xmlns:vis="visual"
-    xmlns:stt="statistic"
-    xmlns:def="default"
-    xmlns:cst="custom"
-    xmlns:ast="asset"
-    xmlns:bd="body"
-    xmlns:ctc="contact"
-    xmlns:eqy="equality"
-    xmlns:tdn="tendon"
-    xmlns:act="actuator"
-    xmlns:sns="sensor"
-    xmlns:key="keyframe">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" xmlns:rt="root">
 
     <xs:import schemaLocation="element/root.xsd" namespace="root"/>
     <xs:import schemaLocation="element/compiler.xsd" namespace="compiler"/>
@@ -38,7 +22,7 @@
     <!-- Recursive types -->
 
     <!-- default -->
-    <xs:complexType name="defaultType">
+    <xs:complexType name="defaultType" xmlns:def="default">
         <xs:complexContent>
             <xs:extension base="def:defaultType">
                 <xs:choice minOccurs="0" maxOccurs="unbounded">
@@ -67,7 +51,7 @@
     </xs:complexType>
 
     <!-- body -->
-    <xs:complexType name="bodyarchType">
+    <xs:complexType name="bodyarchType" xmlns:bd="body">
         <xs:complexContent>
             <xs:extension base="bd:bodyType">
                 <xs:choice minOccurs="0" maxOccurs="unbounded">
@@ -114,7 +98,7 @@
                         <xs:element name="compiler" maxOccurs="1">
                             <xs:complexType>
                                 <xs:complexContent>
-                                    <xs:extension base="cmp:compilerType">
+                                    <xs:extension base="cmp:compilerType" xmlns:cmp="compiler">
                                         <xs:choice minOccurs="0" maxOccurs="unbounded">
                                             <xs:element name="lengthrange" type="cmp:lengthrangeType" maxOccurs="1"/>
                                             <xs:element name="include" type="rt:includeType"/>
@@ -125,7 +109,7 @@
                         </xs:element>
 
                         <!-- option element -->
-                        <xs:element name="option" maxOccurs="1">
+                        <xs:element name="option" maxOccurs="1" xmlns:opt="option">
                             <xs:complexType>
                                 <xs:complexContent>
                                     <xs:extension base="opt:optionType">
@@ -139,10 +123,10 @@
                         </xs:element>
 
                         <!-- size element -->
-                        <xs:element name="size" type="sz:sizeType" maxOccurs="1"/>
+                        <xs:element name="size" type="sz:sizeType" maxOccurs="1" xmlns:sz="size"/>
 
                         <!-- visual element -->
-                        <xs:element name="visual" maxOccurs="1">
+                        <xs:element name="visual" maxOccurs="1" xmlns:vis="visual">
                             <xs:complexType>
                                 <xs:choice minOccurs="0" maxOccurs="unbounded">
                                     <xs:element name="global" type="vis:globalType" maxOccurs="1"/>
@@ -157,13 +141,13 @@
                         </xs:element>
 
                         <!-- statistic element -->
-                        <xs:element name="statistic" type="stt:statisticType" maxOccurs="1"/>
+                        <xs:element name="statistic" xmlns:stt="statistic" type="stt:statisticType" maxOccurs="1"/>
 
                         <!-- default element -->
                         <xs:element name="default" type="defaultType" maxOccurs="1"/>
 
                         <!-- custom element -->
-                        <xs:element name="custom" maxOccurs="1">
+                        <xs:element name="custom" maxOccurs="1" xmlns:cst="custom">
                             <xs:complexType>
                                 <xs:choice minOccurs="0" maxOccurs="unbounded">
                                     <xs:element name="numeric" type="cst:numericType"/>
@@ -186,7 +170,7 @@
                         </xs:element>
 
                         <!-- asset element -->
-                        <xs:element name="asset">
+                        <xs:element name="asset" xmlns:ast="asset">
                             <xs:complexType>
                                 <xs:choice minOccurs="0" maxOccurs="unbounded">
                                     <xs:element name="texture" type="ast:textureType"/>
@@ -211,7 +195,7 @@
                         </xs:element>
 
                         <!-- (world)body element -->
-                        <xs:element name="worldbody">
+                        <xs:element name="worldbody" xmlns:bd="body">
                             <xs:complexType>
                                 <xs:choice minOccurs="0" maxOccurs="unbounded">
                                     <xs:element name="geom" type="bd:geomType"/>
@@ -243,7 +227,7 @@
                         </xs:element>
 
                         <!-- contact element -->
-                        <xs:element name="contact">
+                        <xs:element name="contact" xmlns:ctc="contact">
                             <xs:complexType>
                                 <xs:choice minOccurs="0" maxOccurs="unbounded">
                                     <xs:element name="pair" type="ctc:pairType"/>
@@ -254,7 +238,7 @@
                         </xs:element>
 
                         <!-- equality element -->
-                        <xs:element name="equality">
+                        <xs:element name="equality" xmlns:eqy="equality">
                             <xs:complexType>
                                 <xs:choice minOccurs="0" maxOccurs="unbounded">
                                     <xs:element name="connect" type="eqy:connectType"/>
@@ -268,7 +252,7 @@
                         </xs:element>
 
                         <!-- tendon element -->
-                        <xs:element name="tendon">
+                        <xs:element name="tendon" xmlns:tdn="tendon">
                             <xs:complexType>
                                 <xs:choice minOccurs="0" maxOccurs="unbounded">
                                     <xs:element name="spatial">
@@ -303,7 +287,7 @@
                         </xs:element>
 
                         <!-- actuator element -->
-                        <xs:element name="actuator">
+                        <xs:element name="actuator" xmlns:act="actuator">
                             <xs:complexType>
                                 <xs:choice minOccurs="0" maxOccurs="unbounded">
                                     <xs:element name="general" type="act:generalType"/>
@@ -318,7 +302,7 @@
                         </xs:element>
 
                         <!-- sensor element -->
-                        <xs:element name="sensor">
+                        <xs:element name="sensor" xmlns:sns="sensor">
                             <xs:complexType>
                                 <xs:choice minOccurs="0" maxOccurs="unbounded">
                                     <xs:element name="touch" type="sns:sensorType"/>
@@ -363,7 +347,7 @@
                         </xs:element>
 
                         <!-- keyframe element -->
-                        <xs:element name="keyframe">
+                        <xs:element name="keyframe" xmlns:key="keyframe">
                             <xs:complexType>
                                 <xs:choice minOccurs="0" maxOccurs="unbounded">
                                     <xs:element name="key" type="key:keyType"/>
