@@ -69,7 +69,7 @@
         <xs:attribute name="condim" type="xs:int" default="3"/>
         <xs:attribute name="group" type="xs:int" default="0"/>
         <xs:attribute name="priority" type="xs:int" default="0"/>
-        <xs:attribute name="size" type="at:threeRealsType" default="0 0 0"/>
+        <xs:attribute name="size" type="at:upToThreeRealsType" default="0 0 0"/>
         <xs:attribute name="material" type="xs:string" use="optional"/>
         <xs:attribute name="rgba" type="at:fourRealsType" default="0.5 0.5 0.5 1"/>
         <xs:attribute name="friction" type="at:threeRealsType" default="1 0.005 0.0001"/>
@@ -100,7 +100,7 @@
         <xs:attribute name="group" type="xs:int" default="0"/>
         <xs:attribute name="material" type="xs:string" use="optional"/>
         <xs:attribute name="rgba" type="at:fourRealsType" default="0.5 0.5 0.5 1"/>
-        <xs:attribute name="size" type="at:threeRealsType" default="0.005 0.005 0.005"/>
+        <xs:attribute name="size" type="at:upToThreeRealsType" default="0.005 0.005 0.005"/>
         <xs:attribute name="fromto" type="at:sixRealsType" use="optional"/>
         <xs:attribute name="pos" type="at:threeRealsType" default="0 0 0"/>
         <xs:attribute name="quat" type="at:fourRealsType" default="1 0 0 0"/>
@@ -201,7 +201,7 @@
         <xs:attribute name="condim" type="xs:int" default="3"/>
         <xs:attribute name="group" type="xs:int" default="0"/>
         <xs:attribute name="priority" type="xs:int" default="0"/>
-        <xs:attribute name="size" type="at:threeRealsType" default="0 0 0"/>
+        <xs:attribute name="size" type="at:upToThreeRealsType" default="0 0 0"/>
         <xs:attribute name="material" type="xs:string" use="optional"/>
         <xs:attribute name="rgba" type="at:fourRealsType" default="0.5 0.5 0.5 1"/>
         <xs:attribute name="friction" type="at:threeRealsType" default="1 0.005 0.0001"/>
@@ -216,7 +216,7 @@
 
     <xs:complexType name="compositesiteType">
         <xs:attribute name="group" type="xs:int" default="0"/>
-        <xs:attribute name="size" type="at:threeRealsType" default="0.005 0.005 0.005"/>
+        <xs:attribute name="size" type="at:upToThreeRealsType" default="0.005 0.005 0.005"/>
         <xs:attribute name="material" type="xs:string" use="optional"/>
         <xs:attribute name="rgba" type="at:fourRealsType" default="0.5 0.5 0.5 1"/>
     </xs:complexType>

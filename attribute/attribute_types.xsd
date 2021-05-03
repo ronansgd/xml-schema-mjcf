@@ -59,6 +59,16 @@
             <xs:pattern value="(-{0,1}(([0-9]+.{0,1}[0-9]*)|([0-9]*.{0,1}[0-9]+)) )*(-{0,1}(([0-9]+.{0,1}[0-9]*)|([0-9]*.{0,1}[0-9]+))){0,1}"/>
         </xs:restriction>
     </xs:simpleType>
+    <xs:simpleType name="upToThreeRealsType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="(-{0,1}(([0-9]+.{0,1}[0-9]*)|([0-9]*.{0,1}[0-9]+)) ){0,2}-{0,1}(([0-9]+.{0,1}[0-9]*)|([0-9]*.{0,1}[0-9]+))"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="upToSixRealsType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="(-{0,1}(([0-9]+.{0,1}[0-9]*)|([0-9]*.{0,1}[0-9]+)) ){0,5}-{0,1}(([0-9]+.{0,1}[0-9]*)|([0-9]*.{0,1}[0-9]+))"/>
+        </xs:restriction>
+    </xs:simpleType>
 
     <xs:simpleType name="solimpType">
         <xs:restriction base="xs:string">

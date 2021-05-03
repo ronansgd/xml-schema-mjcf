@@ -14,7 +14,7 @@
         <xs:attribute name="ctrlrange" type="at:twoRealsType" default="0 0"/>
         <xs:attribute name="forcerange" type="at:twoRealsType" default="0 0"/>
         <xs:attribute name="lengthrange" type="at:twoRealsType" default="0 0"/>
-        <xs:attribute name="gear" type="at:sixRealsType" default="1 0 0 0 0 0"/>
+        <xs:attribute name="gear" type="at:upToSixRealsType" default="1 0 0 0 0 0"/>
         <xs:attribute name="cranklength" type="xs:decimal" default="0"/>
         <xs:attribute name="joint" type="xs:string" use="optional"/>
         <xs:attribute name="jointinparent" type="xs:string" use="optional"/>
@@ -41,7 +41,7 @@
         <xs:attribute name="ctrlrange" type="at:twoRealsType" default="0 0"/>
         <xs:attribute name="forcerange" type="at:twoRealsType" default="0 0"/>
         <xs:attribute name="lengthrange" type="at:twoRealsType" default="0 0"/>
-        <xs:attribute name="gear" type="at:sixRealsType" default="1 0 0 0 0 0"/>
+        <xs:attribute name="gear" type="at:upToSixRealsType" default="1 0 0 0 0 0"/>
         <xs:attribute name="cranklength" type="xs:decimal" default="0"/>
         <xs:attribute name="joint" type="xs:string" use="optional"/>
         <xs:attribute name="jointinparent" type="xs:string" use="optional"/>
@@ -89,7 +89,7 @@
         <xs:attribute name="ctrlrange" type="at:twoRealsType" default="0 0"/>
         <xs:attribute name="forcerange" type="at:twoRealsType" default="0 0"/>
         <xs:attribute name="lengthrange" type="at:twoRealsType" default="0 0"/>
-        <xs:attribute name="gear" type="at:sixRealsType" default="1 0 0 0 0 0"/>
+        <xs:attribute name="gear" type="at:upToSixRealsType" default="1 0 0 0 0 0"/>
         <xs:attribute name="cranklength" type="xs:decimal" default="0"/>
         <xs:attribute name="joint" type="xs:string" use="optional"/>
         <xs:attribute name="jointinparent" type="xs:string" use="optional"/>

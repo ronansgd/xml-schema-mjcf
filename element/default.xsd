@@ -9,6 +9,10 @@
         <xs:attribute name="class" type="xs:string" use="required"/>
     </xs:complexType>
 
+    <xs:complexType name="defaultmainType">
+        <xs:attribute name="class" type="xs:string" default="main"/>
+    </xs:complexType>
+
     <xs:complexType name="meshType">
         <xs:attribute name="scale" type="at:threeRealsType" default="1 1 1"/>
     </xs:complexType>
@@ -53,7 +57,7 @@
         <xs:attribute name="condim" type="xs:int" default="3"/>
         <xs:attribute name="group" type="xs:int" default="0"/>
         <xs:attribute name="priority" type="xs:int" default="0"/>
-        <xs:attribute name="size" type="at:threeRealsType" default="0 0 0"/>
+        <xs:attribute name="size" type="at:upToThreeRealsType" default="0 0 0"/>
         <xs:attribute name="material" type="xs:string" use="optional"/>
         <xs:attribute name="rgba" type="at:fourRealsType" default="0.5 0.5 0.5 1"/>
         <xs:attribute name="friction" type="at:threeRealsType" default="1 0.005 0.0001"/>
@@ -82,7 +86,7 @@
         <xs:attribute name="group" type="xs:int" default="0"/>
         <xs:attribute name="material" type="xs:string" use="optional"/>
         <xs:attribute name="rgba" type="at:fourRealsType" default="0.5 0.5 0.5 1"/>
-        <xs:attribute name="size" type="at:threeRealsType" default="0.005 0.005 0.005"/>
+        <xs:attribute name="size" type="at:upToThreeRealsType" default="0.005 0.005 0.005"/>
         <xs:attribute name="fromto" type="at:sixRealsType" use="optional"/>
         <xs:attribute name="pos" type="at:threeRealsType" default="0 0 0"/>
         <xs:attribute name="quat" type="at:fourRealsType" default="1 0 0 0"/>
@@ -155,12 +159,12 @@
         <xs:attribute name="stiffness" type="xs:decimal" default="0"/>
         <xs:attribute name="damping" type="xs:decimal" default="0"/>
         <xs:attribute name="user" type="at:infRealsType"/>
-        <xs:attribute name="site" type="xs:string" use="required"/>
-        <xs:attribute name="geom" type="xs:string" use="required"/>
+        <xs:attribute name="site" type="xs:string" use="optional"/>
+        <xs:attribute name="geom" type="xs:string" use="optional"/>
         <xs:attribute name="sidesite" type="xs:string" use="optional"/>
-        <xs:attribute name="divisor" type="xs:decimal" use="required"/>
-        <xs:attribute name="joint" type="xs:string" use="required"/>
-        <xs:attribute name="coef" type="xs:decimal" use="required"/>
+        <xs:attribute name="divisor" type="xs:decimal" use="optional"/>
+        <xs:attribute name="joint" type="xs:string" use="optional"/>
+        <xs:attribute name="coef" type="xs:decimal" use="optional"/>
     </xs:complexType>
 
     <xs:complexType name="generalType">
@@ -170,7 +174,7 @@
         <xs:attribute name="ctrlrange" type="at:twoRealsType" default="0 0"/>
         <xs:attribute name="forcerange" type="at:twoRealsType" default="0 0"/>
         <xs:attribute name="lengthrange" type="at:twoRealsType" default="0 0"/>
-        <xs:attribute name="gear" type="at:sixRealsType" default="1 0 0 0 0 0"/>
+        <xs:attribute name="gear" type="at:upToSixRealsType" default="1 0 0 0 0 0"/>
         <xs:attribute name="cranklength" type="xs:decimal" default="0"/>
         <!-- Potential improvement -->
         <xs:attribute name="user" type="at:infRealsType"/>
@@ -189,7 +193,7 @@
         <xs:attribute name="ctrlrange" type="at:twoRealsType" default="0 0"/>
         <xs:attribute name="forcerange" type="at:twoRealsType" default="0 0"/>
         <xs:attribute name="lengthrange" type="at:twoRealsType" default="0 0"/>
-        <xs:attribute name="gear" type="at:sixRealsType" default="1 0 0 0 0 0"/>
+        <xs:attribute name="gear" type="at:upToSixRealsType" default="1 0 0 0 0 0"/>
         <xs:attribute name="cranklength" type="xs:decimal" default="0"/>
         <!-- Potential improvement -->
         <xs:attribute name="user" type="at:infRealsType"/>
@@ -229,7 +233,7 @@
         <xs:attribute name="ctrlrange" type="at:twoRealsType" default="0 0"/>
         <xs:attribute name="forcerange" type="at:twoRealsType" default="0 0"/>
         <xs:attribute name="lengthrange" type="at:twoRealsType" default="0 0"/>
-        <xs:attribute name="gear" type="at:sixRealsType" default="1 0 0 0 0 0"/>
+        <xs:attribute name="gear" type="at:upToSixRealsType" default="1 0 0 0 0 0"/>
         <xs:attribute name="cranklength" type="xs:decimal" default="0"/>
         <!-- Potential improvement -->
         <xs:attribute name="user" type="at:infRealsType"/>
