@@ -2,7 +2,7 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
     targetNamespace="custom" xmlns="custom"
     xmlns:at="attributeTypes">
-    <xs:import schemaLocation="../attribute/attribute_types.xsd" namespace="attributeTypes"/>
+    <xs:import schemaLocation="../attribute_types/attribute_types.xsd" namespace="attributeTypes"/>
 
     <xs:complexType name="numericType">
         <xs:attribute name="name" type="xs:string" use="required"/>

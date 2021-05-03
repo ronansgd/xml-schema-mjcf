@@ -2,7 +2,7 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
     targetNamespace="compiler" xmlns="compiler"
     xmlns:at="attributeTypes">
-    <xs:import schemaLocation="../attribute/attribute_types.xsd" namespace="attributeTypes"/>
+    <xs:import schemaLocation="../attribute_types/attribute_types.xsd" namespace="attributeTypes"/>
 
     <xs:complexType name="compilerType">
         <xs:attribute name="boundmass" type="xs:decimal" default="0"/>

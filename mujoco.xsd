@@ -1,22 +1,22 @@
 <?xml version="1.0"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" xmlns:rt="root">
 
-    <xs:import schemaLocation="element/root.xsd" namespace="root"/>
-    <xs:import schemaLocation="element/compiler.xsd" namespace="compiler"/>
-    <xs:import schemaLocation="element/option.xsd" namespace="option"/>
-    <xs:import schemaLocation="element/size.xsd" namespace="size"/>
-    <xs:import schemaLocation="element/visual.xsd" namespace="visual"/>
-    <xs:import schemaLocation="element/statistic.xsd" namespace="statistic"/>
-    <xs:import schemaLocation="element/default.xsd" namespace="default"/>
-    <xs:import schemaLocation="element/custom.xsd" namespace="custom"/>
-    <xs:import schemaLocation="element/asset.xsd" namespace="asset"/>
-    <xs:import schemaLocation="element/body.xsd" namespace="body"/>
-    <xs:import schemaLocation="element/contact.xsd" namespace="contact"/>
-    <xs:import schemaLocation="element/equality.xsd" namespace="equality"/>
-    <xs:import schemaLocation="element/tendon.xsd" namespace="tendon"/>
-    <xs:import schemaLocation="element/actuator.xsd" namespace="actuator"/>
-    <xs:import schemaLocation="element/sensor.xsd" namespace="sensor"/>
-    <xs:import schemaLocation="element/keyframe.xsd" namespace="keyframe"/>
+    <xs:import schemaLocation="element_types/root.xsd" namespace="root"/>
+    <xs:import schemaLocation="element_types/compiler.xsd" namespace="compiler"/>
+    <xs:import schemaLocation="element_types/option.xsd" namespace="option"/>
+    <xs:import schemaLocation="element_types/size.xsd" namespace="size"/>
+    <xs:import schemaLocation="element_types/visual.xsd" namespace="visual"/>
+    <xs:import schemaLocation="element_types/statistic.xsd" namespace="statistic"/>
+    <xs:import schemaLocation="element_types/default.xsd" namespace="default"/>
+    <xs:import schemaLocation="element_types/custom.xsd" namespace="custom"/>
+    <xs:import schemaLocation="element_types/asset.xsd" namespace="asset"/>
+    <xs:import schemaLocation="element_types/body.xsd" namespace="body"/>
+    <xs:import schemaLocation="element_types/contact.xsd" namespace="contact"/>
+    <xs:import schemaLocation="element_types/equality.xsd" namespace="equality"/>
+    <xs:import schemaLocation="element_types/tendon.xsd" namespace="tendon"/>
+    <xs:import schemaLocation="element_types/actuator.xsd" namespace="actuator"/>
+    <xs:import schemaLocation="element_types/sensor.xsd" namespace="sensor"/>
+    <xs:import schemaLocation="element_types/keyframe.xsd" namespace="keyframe"/>
 
 
     <!-- Recursive types -->

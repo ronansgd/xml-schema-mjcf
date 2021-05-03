@@ -3,7 +3,7 @@
     targetNamespace="default" xmlns="default"
     xmlns:at="attributeTypes">
 
-    <xs:import schemaLocation="../attribute/attribute_types.xsd" namespace="attributeTypes"/>
+    <xs:import schemaLocation="../attribute_types/attribute_types.xsd" namespace="attributeTypes"/>
 
     <xs:complexType name="defaultType">
         <xs:attribute name="class" type="xs:string" use="required"/>

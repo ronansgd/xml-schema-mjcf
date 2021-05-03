@@ -3,7 +3,7 @@
     targetNamespace="keyframe" xmlns="keyframe"
     xmlns:at="attributeTypes">
 
-    <xs:import schemaLocation="../attribute/attribute_types.xsd" namespace="attributeTypes"/>
+    <xs:import schemaLocation="../attribute_types/attribute_types.xsd" namespace="attributeTypes"/>
 
     <xs:complexType name="keyType">
         <xs:attribute name="name" type="xs:string" use="optional"/>
