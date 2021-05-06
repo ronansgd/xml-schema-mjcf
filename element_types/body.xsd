@@ -222,7 +222,7 @@
     </xs:complexType>
 
     <xs:complexType name="skinType">
-        <xs:attribute name="textcoord" type="xs:boolean" default="false"/>
+        <xs:attribute name="texcoord" type="xs:boolean" default="false"/>
         <xs:attribute name="material" type="xs:string" use="optional"/>
         <xs:attribute name="rgba" type="at:fourRealsType" default="0.5 0.5 0.5 1"/>
         <xs:attribute name="inflate" type="xs:decimal" default="0"/>
