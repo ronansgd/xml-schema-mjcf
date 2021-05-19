@@ -148,7 +148,7 @@
     <xs:complexType name="compositeType">
         <xs:attribute name="prefix" type="xs:string" use="optional"/>
         <xs:attribute name="type" type="at:compositetypeType" use="required"/>
-        <xs:attribute name="count" type="at:countType" use="required"/>
+        <xs:attribute name="count" type="at:upToThreeRealsType" use="required"/>
         <xs:attribute name="spacing" type="xs:decimal" use="required"/>
         <xs:attribute name="offset" type="at:threeRealsType" default="0 0 0"/>
         <xs:attribute name="flatinertia" type="xs:decimal" default="0"/>
